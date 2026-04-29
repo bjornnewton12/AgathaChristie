@@ -1,3 +1,4 @@
+/* BOOK CARDS*/
 .book-list {
     max-width: 1200px;
     margin: 0 auto;
@@ -38,6 +39,80 @@
 .book-card-meta {
     font-size: 0.85rem;
     color: #333;
+}
+
+/* FILTER */
+.filter-bar {
+    padding: 0 0 1rem 0;
+}
+
+.filter-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.filter-row::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-clear {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: none;
+    background-color: #2a2a2a;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-pill {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+    padding: 0 1rem;
+    border-radius: 999px;
+    border: none;
+    background-color: #2a2a2a;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.filter-pill-l1 {
+    background-color: #DDA5FD;
+    color: #121212;
+    position: relative;
+    z-index: 3;
+}
+
+.filter-pill-l2 {
+    background-color: #D58BFF;
+    color: #121212;
+    border-radius: 0 999px 999px 0;
+    margin-left: -25px;
+    padding-left: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.filter-pill-l3 {
+    background-color: #CB71FF;
+    color: #121212;
+    border-radius: 0 999px 999px 0;
+    margin-left: -24px;
+    padding-left: 1.5rem;
+    position: relative;
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
