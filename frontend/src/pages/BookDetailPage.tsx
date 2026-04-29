@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { fetchBook, type Book } from '../api/books'
+import './BookDetailPage.css'
 
 export default function BookDetailPage() {
     const { id } = useParams<{ id: string }>()

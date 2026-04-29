@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { fetchBooks, type Book } from '../api/books'
+import './BookListPage.css'
 
 export default function BookListPage() {
     const [books, setBooks] = useState<Book[]>([])

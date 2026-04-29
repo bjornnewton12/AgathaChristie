@@ -7,6 +7,7 @@ import {
     type Detective,
     type BookRequest
 } from '../api/books'
+import './BookFormPage.css'
 
 export default function BookFormPage() {
     const { id } = useParams<{ id: string }>()
