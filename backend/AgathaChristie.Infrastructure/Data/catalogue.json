@@ -1,0 +1,110 @@
+{
+  "genres": [
+    {
+      "id": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "name": "Mystery"
+    },
+    {
+      "id": "abd499ad-7f2c-42d4-865f-c164c186d4a9",
+      "name": "Tragedy"
+    }
+  ],
+  "detectives": [
+    {
+      "id": "b56e6d6f-081b-444c-ad32-d237e15d9f53",
+      "name": "Hercule Poirot",
+      "hexColor": "#C3F4D0"
+    },
+    {
+      "id": "02db1bb0-aac8-4174-990a-4c96d3817aca",
+      "name": "Tuppence & Tommy",
+      "hexColor": "#CFDEFE"
+    },
+    {
+      "id": "efbec251-f050-4f9e-8b46-46f8de242823",
+      "name": "Colonel Race",
+      "hexColor": "#FFF9C6"
+    },
+    {
+      "id": "288a9154-98ea-44f9-bccd-48453234ed53",
+      "name": "Superintendent Battle",
+      "hexColor": "#FDC6CA"
+    },
+    {
+      "id": "5f23d325-9949-4ba7-bb1d-bf8fff44ae42",
+      "name": "Miss Marple",
+      "hexColor": "#FFDCC0"
+    },
+    {
+      "id": "45e676a4-9eef-4a3c-86da-56a811eb9653",
+      "name": "Parker Pyne",
+      "hexColor": "#CBF9F4"
+    }
+
+  ],
+  "books": [
+    {
+      "id": "d393d274-663b-4868-9e39-fd16d2b8e991",
+      "title": "The Mysterious Affair at Styles",
+      "titleSwedish": "En dos stryknin",
+      "releaseYear": 1920,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "7e46061d-21e7-487c-9ea5-804df98877c0",
+      "title": "The Secret Adversary",
+      "titleSwedish": "Den hemlighetsfulle motståndaren",
+      "releaseYear": 1922,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "02db1bb0-aac8-4174-990a-4c96d3817aca" ],
+      "isShortStory": false
+    },
+    {
+      "id": "4b372737-bfac-4fc5-a705-e30baaaa3bbc",
+      "title": "Poirot Investigates",
+      "titleSwedish": "Poirots små grå celler",
+      "releaseYear": 1924,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "3f749147-402d-43f7-be03-abe916182a97",
+      "title": "Cards on the Table",
+      "titleSwedish": "Korten på bordet",
+      "releaseYear": 1936,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "288a9154-98ea-44f9-bccd-48453234ed53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "cd93b33a-dd60-492f-9f76-9d249335899c",
+      "title": "And Then There Were None",
+      "titleSwedish": "Och så var de bara en",
+      "releaseYear": 1939,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "61dab10b-3c8a-426b-9a19-a3611028449f",
+      "title": "The Regatta Mystery and Other Stories",
+      "titleSwedish": null,
+      "releaseYear": 1939,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "5f23d325-9949-4ba7-bb1d-bf8fff44ae42", "45e676a4-9eef-4a3c-86da-56a811eb9653" ],
+      "isShortStory": true
+    },
+    {
+      "id": "2c6e0d49-a7ea-487a-bb07-07c81cf755b8",
+      "title": "Absent in the Spring",
+      "titleSwedish": "Skilda åt i vårens tid",
+      "releaseYear": 1944,
+      "genreId": "abd499ad-7f2c-42d4-865f-c164c186d4a9",
+      "detectiveIds": [],
+      "isShortStory": false
+    }
+  ]
+}

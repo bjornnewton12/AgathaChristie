@@ -1,3 +1,11 @@
 .vs/
 bin/
 obj/
+
+# Planning docs
+ROADMAP.md
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env*
