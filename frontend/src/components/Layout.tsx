@@ -1,17 +1,10 @@
-import { Link } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 import './Layout.css'
 
 export default function Layout() {
     return (
-        <div>
-            <header>
-                <Link to="/">
-                    <img src="/src/assets/icons/Icon_Bookcase.svg" alt="Home" />
-                    <span>Agatha Christie Books</span>
-                </Link>
-            </header>
-            <main>
+        <div className="layout">
+            <main className="main">
                 <Outlet />
             </main>
         </div>

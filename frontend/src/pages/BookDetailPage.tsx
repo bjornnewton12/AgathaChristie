@@ -15,23 +15,39 @@ export default function BookDetailPage() {
             .catch(() => setError('Could not load book'))
     }, [id])
 
-    if (error) return <p>{error}</p>
+    if (error) return <p className="error">{error}</p>
     if (!book) return <p>Loading...</p>
 
+    const heroColor = book.detectives[0]?.hexColor ?? '#EBEBEB'
+
     return (
-        <div>
-            <Link to="/">← Back</Link>
-            <Link to={`/books/${book.id}/edit`}>Edit</Link>
-            <h1>{book.title}</h1>
-            {book.titleSwedish && <p>Swedish title: {book.titleSwedish}</p>}
-            <p>Year: {book.releaseYear}</p>
-            <p>Genre: {book.genre.name}</p>
-            <p>Short story: {book.isShortStory ? 'Yes' : 'No'}</p>
-            {book.detectives.length > 0 && (
-                <p>Detectives: {book.detectives.map(d => d.name).join(', ')}</p>
-            )}
-            {book.synopsis && <p>Synopsis: {book.synopsis}</p>}
-            {book.trivia && <p>Trivia: {book.trivia}</p>}
+        <div className="book-detail">
+            <div className="book-detail-hero" style={{ backgroundColor: heroColor }}>
+                <div className="book-detail-hero-nav">
+                    <Link to="/"><img src="/src/assets/icons/Icon_Arrow_Left_Bold.svg" alt="Back" /></Link>
+                    <Link to={`/books/${book.id}/edit`}><img src="/src/assets/icons/Icon_Edit.svg" alt="Edit" /></Link>
+                </div>
+                <h1 className="book-detail-title">{book.title}</h1>
+                {book.titleSwedish && <p className="book-detail-title-swedish">{book.titleSwedish}</p>}
+            </div>
+            <div className="book-detail-body">
+                <p className="book-detail-meta">
+                    {book.releaseYear} | {book.genre.name}
+                    {book.detectives.length > 0 && ` | ${book.detectives.map(d => d.name).join(', ')}`}
+                </p>
+                {book.synopsis && (
+                    <section>
+                        <h2>Synopsis</h2>
+                        <p>{book.synopsis}</p>
+                    </section>
+                )}
+                {book.trivia && (
+                    <section>
+                        <h2>Trivia</h2>
+                        <p>{book.trivia}</p>
+                    </section>
+                )}
+            </div>
         </div>
     )
 }

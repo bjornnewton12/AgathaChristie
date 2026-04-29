@@ -13,22 +13,24 @@ export default function BookListPage() {
             .catch(() => setError('Could not load books'))
     }, [])
 
-    if (error) return <p>{error}</p>
+    if (error) return <p className="error">{error}</p>
 
     return (
-        <div>
-            <h1>Books</h1>
-            <ul>
+        <div className="book-list">
+            <img src="/logo/Logo.svg" alt="Agatha Christie" className="book-list-logo" />
+            <ul className="book-grid">
                 {books.map(book => (
-                    <li key={book.id}>
-                        <Link to={`/books/${book.id}`}>
-                            {book.title} ({book.releaseYear})
+                    <li
+                        key={book.id}
+                        className="book-card"
+                        style={{ backgroundColor: book.detectives[0]?.hexColor ?? '#EBEBEB' }}>
+                        <Link to={`/books/${book.id}`} className="book-card-link">
+                            <span className="book-card-title">{book.title}</span>
+                            <span className="book-card-meta">
+                                {book.releaseYear} | {book.genre.name}
+                                {book.detectives.length > 0 && ` | ${book.detectives.map(d => d.name).join(', ')}`}
+                            </span>
                         </Link>
-                        {' — '}
-                        {book.genre.name}
-                        {book.detectives.length > 0 && (
-                            <span> — {book.detectives.map(d => d.name).join(', ')}</span>
-                        )}
                     </li>
                 ))}
             </ul>

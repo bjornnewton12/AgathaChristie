@@ -67,34 +67,42 @@ export default function BookFormPage() {
     if (!base) return <p>Loading...</p>
 
     return (
-        <div>
-            <h1>Edit Book</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Detectives</label>
-                    {detectives.map(d => (
-                        <label key={d.id}>
-                            <input
-                                type="checkbox"
-                                checked={form.detectiveIds.includes(d.id)}
-                                onChange={() => toggleDetective(d.id)}
-                            />
-                            {d.name}
-                        </label>
-                    ))}
+        <div className="book-form">
+            <h1 className="book-form-title">Edit Book</h1>
+            <form onSubmit={handleSubmit} className="book-form-fields">
+                <div className="book-form-field">
+                    <label className="book-form-label">Detectives</label>
+                    <div className="book-form-pills">
+                        {detectives.map(d => (
+                            <label
+                                key={d.id}
+                                className={`book-form-pill${form.detectiveIds.includes(d.id) ? ' selected' : ''}`}
+                                style={form.detectiveIds.includes(d.id) ? { backgroundColor: d.hexColor, borderColor: d.hexColor } : {}}
+                            >
+                                <input
+                                    type="checkbox"
+                                    checked={form.detectiveIds.includes(d.id)}
+                                    onChange={() => toggleDetective(d.id)}
+                                />
+                                {d.name}
+                            </label>
+                        ))}
+                    </div>
                 </div>
-                <div>
-                    <label>Synopsis</label>
-                    <textarea value={form.synopsis ?? ''} onChange={e => setForm(f =>
+                <div className="book-form-field">
+                    <label className="book-form-label">Synopsis</label>
+                    <textarea className="book-form-textarea" value={form.synopsis ?? ''} onChange={e => setForm(f =>
                         ({ ...f, synopsis: e.target.value || null }))} />
                 </div>
-                <div>
-                    <label>Trivia</label>
-                    <textarea value={form.trivia ?? ''} onChange={e => setForm(f =>
+                <div className="book-form-field">
+                    <label className="book-form-label">Trivia</label>
+                    <textarea className="book-form-textarea" value={form.trivia ?? ''} onChange={e => setForm(f =>
                         ({ ...f, trivia: e.target.value || null }))} />
                 </div>
-                <button type="button" onClick={() => navigate(`/books/${id}`)}>Cancel</button>
-                <button type="submit">Save</button>
+                <div className="book-form-actions">
+                    <button type="button" className="book-form-btn-cancel" onClick={() => navigate(`/books/${id}`)}>Cancel</button>
+                    <button type="submit" className="book-form-btn-save">Save</button>
+                </div>
             </form>
         </div>
     )

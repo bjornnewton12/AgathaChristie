@@ -1,0 +1,101 @@
+.book-form {
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.book-form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.book-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.book-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.book-form-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.book-form-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.book-form-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    border: 2px solid #444;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.15s ease;
+}
+
+.book-form-pill input {
+    display: none;
+}
+
+.book-form-pill.selected {
+    color: #121212;
+}
+
+.book-form-textarea {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: var(--radius);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.book-form-textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.book-form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.book-form-btn-cancel {
+    background: none;
+    border: 1px solid #444;
+    border-radius: var(--radius);
+    color: var(--text-secondary);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.book-form-btn-save {
+    background-color: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    color: #121212;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
