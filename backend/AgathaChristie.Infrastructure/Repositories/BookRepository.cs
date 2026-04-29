@@ -32,24 +32,7 @@ public class BookRepository : IBookRepository
             .FirstOrDefaultAsync(b => b.Id == id);
     }
 
-    public async Task<Book> CreateAsync(Book book, List<Guid> detectiveIds)
-    {
-        book.Id = Guid.NewGuid();
-        _db.Books.Add(book);
-
-        foreach (var detectiveId in detectiveIds)
-            _db.BookDetectives.Add(new BookDetective
-            {
-                BookId = book.Id,
-                DetectiveId = detectiveId
-            });
-
-        await _db.SaveChangesAsync();
-        return (await GetByIdAsync(book.Id))!;
-    }
-
-    public async Task<Book?> UpdateAsync(Guid id, Book updated, List<Guid>
-detectiveIds)
+    public async Task<Book?> UpdateAsync(Guid id, Book updated, List<Guid> detectiveIds)
     {
         var book = await _db.Books
             .Include(b => b.BookDetectives)
@@ -77,13 +60,4 @@ detectiveIds)
         return await GetByIdAsync(id);
     }
 
-    public async Task<bool> DeleteAsync(Guid id)
-    {
-        var book = await _db.Books.FindAsync(id);
-        if (book is null) return false;
-
-        _db.Books.Remove(book);
-        await _db.SaveChangesAsync();
-        return true;
-    }
 }

@@ -1,4 +1,4 @@
-{
+ï»¿{
   "genres": [
     {
       "id": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
@@ -55,7 +55,7 @@
     {
       "id": "7e46061d-21e7-487c-9ea5-804df98877c0",
       "title": "The Secret Adversary",
-      "titleSwedish": "Den hemlighetsfulle motståndaren",
+      "titleSwedish": "Den hemlighetsfulle motstÃ¥ndaren",
       "releaseYear": 1922,
       "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
       "detectiveIds": [ "02db1bb0-aac8-4174-990a-4c96d3817aca" ],
@@ -64,7 +64,7 @@
     {
       "id": "4b372737-bfac-4fc5-a705-e30baaaa3bbc",
       "title": "Poirot Investigates",
-      "titleSwedish": "Poirots små grå celler",
+      "titleSwedish": "Poirots smÃ¥ grÃ¥ celler",
       "releaseYear": 1924,
       "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
       "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
@@ -73,7 +73,7 @@
     {
       "id": "3f749147-402d-43f7-be03-abe916182a97",
       "title": "Cards on the Table",
-      "titleSwedish": "Korten på bordet",
+      "titleSwedish": "Korten pÃ¥ bordet",
       "releaseYear": 1936,
       "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
       "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "288a9154-98ea-44f9-bccd-48453234ed53" ],
@@ -82,7 +82,7 @@
     {
       "id": "cd93b33a-dd60-492f-9f76-9d249335899c",
       "title": "And Then There Were None",
-      "titleSwedish": "Och så var de bara en",
+      "titleSwedish": "Och sÃ¥ var de bara en",
       "releaseYear": 1939,
       "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
       "detectiveIds": [],
@@ -100,7 +100,7 @@
     {
       "id": "2c6e0d49-a7ea-487a-bb07-07c81cf755b8",
       "title": "Absent in the Spring",
-      "titleSwedish": "Skilda åt i vårens tid",
+      "titleSwedish": "Skilda Ã¥t i vÃ¥rens tid",
       "releaseYear": 1944,
       "genreId": "abd499ad-7f2c-42d4-865f-c164c186d4a9",
       "detectiveIds": [],

@@ -24,23 +24,6 @@ public class BookService
         return book is null ? null : MapToResponse(book);
     }
 
-    public async Task<BookResponse> CreateAsync(BookRequest request)
-    {
-        var book = new Domain.Models.Book
-        {
-            Title = request.Title,
-            TitleSwedish = request.TitleSwedish,
-            ReleaseYear = request.ReleaseYear,
-            IsShortStory = request.IsShortStory,
-            Synopsis = request.Synopsis,
-            Trivia = request.Trivia,
-            GenreId = request.GenreId
-        };
-
-        var created = await _bookRepository.CreateAsync(book, request.DetectiveIds);
-        return MapToResponse(created);
-    }
-
     public async Task<BookResponse?> UpdateAsync(Guid id, BookRequest request)
     {
         var book = new Domain.Models.Book
@@ -57,9 +40,6 @@ public class BookService
         var updated = await _bookRepository.UpdateAsync(id, book, request.DetectiveIds);
         return updated is null ? null : MapToResponse(updated);
     }
-
-    public async Task<bool> DeleteAsync(Guid id) =>
-        await _bookRepository.DeleteAsync(id);
 
     private static BookResponse MapToResponse(Domain.Models.Book book) => new()
     {
