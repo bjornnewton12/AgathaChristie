@@ -63,8 +63,8 @@ export default function BookFormPage() {
         }
     }
 
-    if (error) return <p>{error}</p>
-    if (!base) return <p>Loading...</p>
+    if (error) return <p className="page-error">{error}</p>
+    if (!base) return <p className="page-loading">Loading...</p>
 
     return (
         <div className="book-form">

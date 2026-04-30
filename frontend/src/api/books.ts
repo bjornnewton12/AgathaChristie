@@ -1,6 +1,7 @@
 export interface Detective {
     id: string
     name: string
+    shortName: string | null
     hexColor: string
 }
 

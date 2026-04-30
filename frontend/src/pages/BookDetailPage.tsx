@@ -15,8 +15,8 @@ export default function BookDetailPage() {
             .catch(() => setError('Could not load book'))
     }, [id])
 
-    if (error) return <p className="error">{error}</p>
-    if (!book) return <p>Loading...</p>
+    if (error) return <p className="page-error">{error}</p>
+    if (!book) return <p className="page-loading">Loading...</p>
 
     const heroColor = book.detectives[0]?.hexColor ?? '#EBEBEB'
 

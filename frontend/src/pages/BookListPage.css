@@ -115,6 +115,66 @@
     z-index: 1;
 }
 
+/* SORT */
+.sort-trigger-row {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.sort-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.25rem 0;
+}
+
+.sort-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    z-index: 10;
+    min-width: 180px;
+}
+
+.sort-heading {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem 0;
+    color: var(--text-primary);
+}
+
+.sort-option {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem 0;
+    width: 100%;
+    text-align: left;
+}
+
+.sort-option-active {
+    color: #DDA5FD;
+}
+
+.sort-option-active img {
+    filter: brightness(0) saturate(100%) invert(72%) sepia(40%) saturate(800%) hue-rotate(243deg) brightness(108%);
+}
+
 @media (max-width: 768px) {
     .book-grid {
         grid-template-columns: repeat(2, 1fr);

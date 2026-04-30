@@ -5,23 +5,29 @@ import './BookListPage.css'
 
 export default function BookListPage() {
     const [books, setBooks] = useState<Book[]>([])
+    const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const [genres, setGenres] = useState<Genre[]>([])
     const [selectedGenreId, setSelectedGenreId] = useState<string | null>(null)
     const [genreExpanded, setGenreExpanded] = useState(false)
     const [selectedDetectiveIds, setSelectedDetectiveIds] = useState<string[]>([])
+    const [sortBy, setSortBy] = useState<'year' | 'alpha'>('year')
+    const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
+    const [sortExpanded, setSortExpanded] = useState(false)
 
     useEffect(() => {
         fetchBooks()
             .then(setBooks)
             .catch(() => setError('Could not load books'))
+            .finally(() => setLoading(false))
     }, [])
 
     useEffect(() => {
         fetchGenres().then(setGenres).catch(() => { })
     }, [])
 
-    if (error) return <p className="error">{error}</p>
+    if (loading) return <p className="page-loading">Loading...</p>
+    if (error) return <p className="page-error">{error}</p>
 
     const genreFilteredBooks = selectedGenreId
         ? books.filter(b => b.genre.id === selectedGenreId)
@@ -33,6 +39,13 @@ export default function BookListPage() {
         )
         : genreFilteredBooks
 
+    const dir = sortDir === 'asc' ? 1 : -1
+    const sortedBooks = [...displayedBooks].sort((a, b) =>
+        sortBy === 'alpha'
+            ? a.title.localeCompare(b.title) * dir
+            : (a.releaseYear - b.releaseYear) * dir
+    )
+
     const availableDetectives: Detective[] = selectedGenreId
         ? Array.from(
             new Map(
@@ -43,6 +56,16 @@ export default function BookListPage() {
             ).values()
         )
         : []
+
+    function handleSortOption(option: 'year' | 'alpha') {
+        if (sortBy === option) {
+            setSortDir(d => d === 'asc' ? 'desc' : 'asc')
+        } else {
+            setSortBy(option)
+            setSortDir('asc')
+        }
+        setSortExpanded(false)
+    }
 
     function clearFilters() {
         setSelectedGenreId(null)
@@ -57,8 +80,8 @@ export default function BookListPage() {
                 <div className="filter-row">
                     {selectedGenreId && (
                         <button className="filter-clear" onClick={clearFilters}>
-    <img src="/src/assets/icons/Icon_Cancel.svg" alt="Clear filters" />
-</button>
+                            <img src="/src/assets/icons/Icon_Cancel.svg" alt="Clear filters" />
+                        </button>
                     )}
                     {!selectedGenreId ? (
                         <button
@@ -79,7 +102,7 @@ export default function BookListPage() {
                         <button
                             key={g.id}
                             className="filter-pill"
-                            onClick={() => { setSelectedGenreId(g.id); setGenreExpanded(false); }} >
+                            onClick={() => { setSelectedGenreId(g.id); setGenreExpanded(false); }}>
                             {g.name}
                         </button>
                     ))}
@@ -89,8 +112,8 @@ export default function BookListPage() {
                             <button
                                 key={detId}
                                 className="filter-pill filter-pill-l3"
-                                onClick={() => setSelectedDetectiveIds(ids => ids.filter(id => id !== detId))} >
-                                {det.name}
+                                onClick={() => setSelectedDetectiveIds(ids => ids.filter(id => id !== detId))}>
+                                {det.shortName ?? det.name}
                             </button>
                         ) : null
                     })}
@@ -98,15 +121,43 @@ export default function BookListPage() {
                         <button
                             key={d.id}
                             className="filter-pill"
-                            onClick={() => setSelectedDetectiveIds(ids => [...ids, d.id])}
-                        >
-                            {d.name}
+                            onClick={() => setSelectedDetectiveIds(ids => [...ids, d.id])}>
+                            {d.shortName ?? d.name}
                         </button>
                     ))}
                 </div>
+                <div className="sort-trigger-row">
+                    <button className="sort-trigger" onClick={() => setSortExpanded(e => !e)}>
+                        <img src="/src/assets/icons/Icon_Sort.svg" alt="Sort" />
+                        {sortBy === 'year' ? 'Year' : 'Alphabetical'}
+                    </button>
+                    {sortExpanded && (
+                        <div className="sort-dropdown">
+                            <p className="sort-heading">Sort by</p>
+                            <button
+                                className={`sort-option${sortBy === 'year' ? ' sort-option-active' : ''}`}
+                                onClick={() => handleSortOption('year')}
+                            >
+                                Year
+                                {sortBy === 'year' && (
+                                    <img src={`/src/assets/icons/${sortDir === 'asc' ? 'Icon_Arrow_Down.svg' : 'Icon_Arrow_Up.svg'}`} alt="" />
+                                )}
+                            </button>
+                            <button
+                                className={`sort-option${sortBy === 'alpha' ? ' sort-option-active' : ''}`}
+                                onClick={() => handleSortOption('alpha')}
+                            >
+                                Alphabetical
+                                {sortBy === 'alpha' && (
+                                    <img src={`/src/assets/icons/${sortDir === 'asc' ? 'Icon_Arrow_Down.svg' : 'Icon_Arrow_Up.svg'}`} alt="" />
+                                )}
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
             <ul className="book-grid">
-                {displayedBooks.map(book => (
+                {sortedBooks.map(book => (
                     <li
                         key={book.id}
                         className="book-card"
