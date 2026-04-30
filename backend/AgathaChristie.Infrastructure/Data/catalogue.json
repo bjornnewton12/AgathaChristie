@@ -13,34 +13,57 @@
     {
       "id": "b56e6d6f-081b-444c-ad32-d237e15d9f53",
       "name": "Hercule Poirot",
+      "shortName": "Poirot",
       "hexColor": "#C3F4D0"
     },
     {
       "id": "02db1bb0-aac8-4174-990a-4c96d3817aca",
       "name": "Tuppence & Tommy",
+      "shortName": "Tommy & Tuppence",
       "hexColor": "#CFDEFE"
     },
     {
       "id": "efbec251-f050-4f9e-8b46-46f8de242823",
       "name": "Colonel Race",
+      "shortName": "Race",
       "hexColor": "#FFF9C6"
     },
     {
       "id": "288a9154-98ea-44f9-bccd-48453234ed53",
       "name": "Superintendent Battle",
+      "shortName": "Battle",
       "hexColor": "#FDC6CA"
     },
     {
       "id": "5f23d325-9949-4ba7-bb1d-bf8fff44ae42",
       "name": "Miss Marple",
+      "shortName": "Marple",
       "hexColor": "#FFDCC0"
     },
     {
       "id": "45e676a4-9eef-4a3c-86da-56a811eb9653",
       "name": "Parker Pyne",
+      "shortName": "Pyne",
+      "hexColor": "#CBF9F4"
+    },
+    {
+      "id": "1b28a07a-cad8-49fc-88f4-12806e363a4b",
+      "name": "Harley Quinn",
+      "shortName": "Quinn",
+      "hexColor": "#CBF9F4"
+    },
+    {
+      "id": "9811f569-e697-48e9-9e58-a936322acc5b",
+      "name": "Ariadne Oliver",
+      "shortName": "Ariadne",
+      "hexColor": "#CBF9F4"
+    },
+    {
+      "id": "7769c925-1ac7-41ba-b897-810cf3aa4dd9",
+      "name": "Arthur Hastings",
+      "shortName": "Hastings",
       "hexColor": "#CBF9F4"
     }
-
   ],
   "books": [
     {
@@ -49,7 +72,7 @@
       "titleSwedish": "En dos stryknin",
       "releaseYear": 1920,
       "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
-      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "7769c925-1ac7-41ba-b897-810cf3aa4dd9" ],
       "isShortStory": false
     },
     {
@@ -62,6 +85,24 @@
       "isShortStory": false
     },
     {
+      "id": "89b9161c-a543-4565-9bc5-f24e202b1a4e",
+      "title": "The Murder on the Links",
+      "titleSwedish": "Vem var den skyldige?",
+      "releaseYear": 1923,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "7769c925-1ac7-41ba-b897-810cf3aa4dd9" ],
+      "isShortStory": false
+    },
+    {
+      "id": "b3832eef-25fb-4383-9941-b260c94efe21",
+      "title": "The Man in the Brown Suit",
+      "titleSwedish": "Mannen i brunt",
+      "releaseYear": 1924,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "efbec251-f050-4f9e-8b46-46f8de242823" ],
+      "isShortStory": false
+    },
+    {
       "id": "4b372737-bfac-4fc5-a705-e30baaaa3bbc",
       "title": "Poirot Investigates",
       "titleSwedish": "Poirots små grå celler",
@@ -71,12 +112,282 @@
       "isShortStory": true
     },
     {
+      "id": "d3fa6f5d-64ae-4332-991c-de2f27dc7802",
+      "title": "The Secret of Chimneys",
+      "titleSwedish": "Hemligheten på Chimneys",
+      "releaseYear": 1925,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "288a9154-98ea-44f9-bccd-48453234ed53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "65514f9f-4535-4337-827d-16b4c6ffdc94",
+      "title": "The Murder of Roger Ackroyd",
+      "titleSwedish": "Dolken från Tunis",
+      "releaseYear": 1926,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "3c9cc9ab-f1d1-48d3-8b1d-6dfc915b7709",
+      "title": " The Big Four",
+      "titleSwedish": "De fyra; De fyra stora",
+      "releaseYear": 1927,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "7769c925-1ac7-41ba-b897-810cf3aa4dd9" ],
+      "isShortStory": false
+    },
+    {
+      "id": "5fb3e137-df49-4419-83ba-26f512cdd4bf",
+      "title": "The Mystery of the Blue Train",
+      "titleSwedish": "Mysteriet på Blå tåget",
+      "releaseYear": 1928,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "c3ee08b6-b01f-4949-962b-b6f3c1a8ba0d",
+      "title": "The Seven Dials Mystery",
+      "titleSwedish": "De sju urens mysterium",
+      "releaseYear": 1929,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "288a9154-98ea-44f9-bccd-48453234ed53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "6c525029-f9e1-4bfa-9313-29fac9aadd86",
+      "title": "Partners in Crime",
+      "titleSwedish": "Par i brott",
+      "releaseYear": 1929,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "02db1bb0-aac8-4174-990a-4c96d3817aca" ],
+      "isShortStory": true
+    },
+    {
+      "id": "dcc3ad83-2b8c-4a92-baab-cd7a05bf81e0",
+      "title": "The Murder at the Vicarage",
+      "titleSwedish": "Mordet i prästgården",
+      "releaseYear": 1930,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "82bc9bc7-0aaa-42aa-9063-b66fea71f09c",
+      "title": "The Mysterious Mr Quin",
+      "titleSwedish": "Den mystiske Mr Quin",
+      "releaseYear": 1930,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "1b28a07a-cad8-49fc-88f4-12806e363a4b" ],
+      "isShortStory": true
+    },
+    {
+      "id": "acdb3bc5-5697-4780-96b3-9b42d47d2674",
+      "title": "Giant's Bread",
+      "titleSwedish": "Falskt ackord",
+      "releaseYear": 1930,
+      "genreId": "abd499ad-7f2c-42d4-865f-c164c186d4a9",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "8e50fec2-29e9-4d00-8e1e-15e28c01677d",
+      "title": "The Sittaford Mystery",
+      "titleSwedish": "Mördande seans",
+      "releaseYear": 1931,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "a25f2e25-73af-4a87-ba24-fb8b26c9088b",
+      "title": "Peril at End House",
+      "titleSwedish": "Badortsmysteriet",
+      "releaseYear": 1932,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "7769c925-1ac7-41ba-b897-810cf3aa4dd9" ],
+      "isShortStory": false
+    },
+    {
+      "id": "b6671854-bd71-43a4-91fa-5b8345f06855",
+      "title": "The Thirteen Problems",
+      "titleSwedish": "Miss Marples mysterier",
+      "releaseYear": 1932,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": true
+    },
+    {
+      "id": "c3f48cb3-c7a2-4cb4-b83d-e50d9c71e1b3",
+      "title": "The Blue Geranium",
+      "titleSwedish": "Den Blå Pelargonen",
+      "releaseYear": 1932,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": true
+    },
+    {
+      "id": "203cd2e2-6925-42c6-ab7e-d6d07d783b31",
+      "title": "Lord Edgware Dies",
+      "titleSwedish": "Tretton vid bordet",
+      "releaseYear": 1933,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "7769c925-1ac7-41ba-b897-810cf3aa4dd9" ],
+      "isShortStory": false
+    },
+    {
+      "id": "4716cb4b-3561-4362-951e-8b94d43cf1f7",
+      "title": "The Hound of Death",
+      "titleSwedish": null,
+      "releaseYear": 1933,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": true
+    },
+    {
+      "id": "0c9a7654-f29b-4629-a7a3-4a425d13252e",
+      "title": "Murder on the Orient Express",
+      "titleSwedish": "Mordet på Orientexpressen",
+      "releaseYear": 1934,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "f3de5412-93f1-4b83-80aa-d4d6649beee1",
+      "title": "Why Didn't They Ask Evans?",
+      "titleSwedish": "Varför bad de inte Evans?",
+      "releaseYear": 1934,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "f5bea995-456c-47ea-8434-c748f32cc75d",
+      "title": "Three Act Tragedy",
+      "titleSwedish": "Tragedi i tre akter",
+      "releaseYear": 1934,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "6239f6e7-3120-4b29-84b4-d88368ebbb8f",
+      "title": "The Listerdale Mystery",
+      "titleSwedish": null,
+      "releaseYear": 1934,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": true
+    },
+    {
+      "id": "cc89f981-5f9d-4a3d-b4ce-0e739b78412b",
+      "title": "Parker Pyne Investigates",
+      "titleSwedish": null,
+      "releaseYear": 1934,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "45e676a4-9eef-4a3c-86da-56a811eb9653" ],
+      "isShortStory": true
+    },
+    {
+      "id": "ce5cc1cd-5a24-4e68-9061-62455c28719c",
+      "title": "Unfinished Portrait",
+      "titleSwedish": "Ofullbordat porträtt",
+      "releaseYear": 1934,
+      "genreId": "abd499ad-7f2c-42d4-865f-c164c186d4a9",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "20f0d070-69a6-498d-bbbf-fa3c02691e54",
+      "title": "Death in the Clouds",
+      "titleSwedish": "Den flygande döden",
+      "releaseYear": 1935,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "0e99c9b3-d133-4c51-b37a-671142f5b13c",
+      "title": "The A.B.C. Murders",
+      "titleSwedish": "ABC-morden",
+      "releaseYear": 1936,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "7769c925-1ac7-41ba-b897-810cf3aa4dd9" ],
+      "isShortStory": false
+    },
+    {
+      "id": "7e937516-9faa-404f-b6b4-6c13dc44aefa",
+      "title": "Murder in Mesopotamia",
+      "titleSwedish": "Mord i Mesopotamien",
+      "releaseYear": 1936,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
       "id": "3f749147-402d-43f7-be03-abe916182a97",
       "title": "Cards on the Table",
       "titleSwedish": "Korten på bordet",
       "releaseYear": 1936,
       "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
-      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "288a9154-98ea-44f9-bccd-48453234ed53" ],
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "efbec251-f050-4f9e-8b46-46f8de242823", "9811f569-e697-48e9-9e58-a936322acc5b" ],
+      "isShortStory": false
+    },
+    {
+      "id": "ef9c8fed-4e26-4582-bf52-e8335d874863",
+      "title": "Dumb Witness",
+      "titleSwedish": "Det stumma vittnet",
+      "releaseYear": 1937,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "7769c925-1ac7-41ba-b897-810cf3aa4dd9" ],
+      "isShortStory": false
+    },
+    {
+      "id": "dd7c0ab7-b792-4358-941c-937388b42c1c",
+      "title": "Death on the Nile",
+      "titleSwedish": "Döden på Nilen",
+      "releaseYear": 1937,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "efbec251-f050-4f9e-8b46-46f8de242823" ],
+      "isShortStory": false
+    },
+    {
+      "id": "7b0152ff-2c31-4f18-8220-12e50b83095f",
+      "title": "Murder in the Mews",
+      "titleSwedish": null,
+      "releaseYear": 1937,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "eca3ceb4-8778-4b9d-8c34-70af301fe61f",
+      "title": "Appointment with Death",
+      "titleSwedish": "Döden till mötes",
+      "releaseYear": 1938,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "b2ba21cf-0827-4dac-95f6-75e38b515463",
+      "title": "Hercule Poirot's Christmas",
+      "titleSwedish": "Hercule Poirots jul",
+      "releaseYear": 1938,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "05012223-58ea-4cd1-a382-d0bfad28e66c",
+      "title": "Murder Is Easy",
+      "titleSwedish": "Mord är lätt",
+      "releaseYear": 1939,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "288a9154-98ea-44f9-bccd-48453234ed53" ],
       "isShortStory": false
     },
     {
@@ -98,6 +409,141 @@
       "isShortStory": true
     },
     {
+      "id": "78a1e909-e909-4f65-9487-e2653859fe4c",
+      "title": "Sad Cypress",
+      "titleSwedish": "Samvetskval",
+      "releaseYear": 1940,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "3504b1a3-043f-4767-8ae7-80926fa7f073",
+      "title": "One, Two, Buckle My Shoe",
+      "titleSwedish": "Skospännet",
+      "releaseYear": 1940,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "3465fbca-62b3-4049-8b24-ccbbee4db5f5",
+      "title": "Evil Under the Sun",
+      "titleSwedish": "Mord på ljusa dagen",
+      "releaseYear": 1941,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "4d63e7a6-d62a-4bf3-a4a0-d2972b5546ec",
+      "title": "N or M?",
+      "titleSwedish": "N eller M?",
+      "releaseYear": 1941,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "02db1bb0-aac8-4174-990a-4c96d3817aca" ],
+      "isShortStory": false
+    },
+    {
+      "id": "a037f1eb-78fc-42b1-b548-f074c472e950",
+      "title": "The Body in the Library",
+      "titleSwedish": "Liket i biblioteket",
+      "releaseYear": 1942,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "474eccd5-5797-42c3-923c-7a3137ffbaa1",
+      "title": "Five Little Pigs",
+      "titleSwedish": "Fem små grisar",
+      "releaseYear": 1942,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "8b6a512e-8a40-4f27-afe6-cc2def5b3e2f",
+      "title": "The Moving Finger",
+      "titleSwedish": "Mord per korrespondens",
+      "releaseYear": 1942,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "fe944654-62c5-4fdf-951b-984ef191cdc4",
+      "title": "Poirot and the Regatta Mystery",
+      "titleSwedish": null,
+      "releaseYear": 1943,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "35866600-86f8-4f1a-b9a5-eca077352b09",
+      "title": "The Mystery of the Baghdad Chest",
+      "titleSwedish": null,
+      "releaseYear": 1943,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "a093077b-bfba-4441-af66-f9a6e2a97b35",
+      "title": "The Crime in Cabin 66",
+      "titleSwedish": null,
+      "releaseYear": 1943,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "ecb837b8-b778-4848-b4ab-ffd5c1108d17",
+      "title": "Poirot on Holiday",
+      "titleSwedish": null,
+      "releaseYear": 1943,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "d2799dcb-c470-4cdc-88b2-bd6d310f22d6",
+      "title": "Problem at Pollensa Bay and The Christmas Adventure",
+      "titleSwedish": null,
+      "releaseYear": 1943,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "45e676a4-9eef-4a3c-86da-56a811eb9653" ],
+      "isShortStory": false
+    },
+    {
+      "id": "2ae2e3e1-e84d-462c-a06f-b1e4579d7147",
+      "title": "Towards Zero",
+      "titleSwedish": "Klockan K",
+      "releaseYear": 1944,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "288a9154-98ea-44f9-bccd-48453234ed53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "56b31336-d982-4e4b-82e6-5f2fcf107899",
+      "title": "Death Comes as the End",
+      "titleSwedish": "Slutet blir döden",
+      "releaseYear": 1944,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "7bd23ef4-ffec-46d8-9eec-18a8052315d4",
+      "title": "The Veiled Lady and The Mystery of the Baghdad Chest",
+      "titleSwedish": null,
+      "releaseYear": 1944,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
       "id": "2c6e0d49-a7ea-487a-bb07-07c81cf755b8",
       "title": "Absent in the Spring",
       "titleSwedish": "Skilda åt i vårens tid",
@@ -105,6 +551,501 @@
       "genreId": "abd499ad-7f2c-42d4-865f-c164c186d4a9",
       "detectiveIds": [],
       "isShortStory": false
+    },
+    {
+      "id": "eeedd4e8-73d4-4f6f-bf59-54155888402e",
+      "title": "Sparkling Cyanide",
+      "titleSwedish": "Cyankalium och champagne",
+      "releaseYear": 1945,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "efbec251-f050-4f9e-8b46-46f8de242823" ],
+      "isShortStory": false
+    },
+    {
+      "id": "986b0c23-7e4c-40b8-aaa3-1270b7fc4c76",
+      "title": "The Hollow",
+      "titleSwedish": "Gropen",
+      "releaseYear": 1946,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "ec305e1b-2285-442f-98bd-bddf36df6bc8",
+      "title": "Poirot Knows the Murderer",
+      "titleSwedish": null,
+      "releaseYear": 1946,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "e8fa54db-a742-4fae-ace7-aa09c3078ec2",
+      "title": "Poirot Lends a Hand",
+      "titleSwedish": null,
+      "releaseYear": 1946,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "c7bb83b4-823b-4faf-8a0f-37fa88e036db",
+      "title": "The Labours of Hercules",
+      "titleSwedish": "Herkules’ storverk",
+      "releaseYear": 1947,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "e0237a82-b335-41c7-ba62-2597046b5bad",
+      "title": "Taken at the Flood",
+      "titleSwedish": "Högt vatten",
+      "releaseYear": 1948,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "ed48ebdb-b706-4462-a348-7c886926eacc",
+      "title": "The Witness for the Prosecution and Other Stories",
+      "titleSwedish": null,
+      "releaseYear": 1948,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "cf6f6ff1-f479-46b6-b520-8bf291fc41e4",
+      "title": "The Rose and the Yew Tree",
+      "titleSwedish": "Rosen och tisteln",
+      "releaseYear": 1948,
+      "genreId": "abd499ad-7f2c-42d4-865f-c164c186d4a9",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "f9e47bda-6332-4f79-8f17-664ce4b793f8",
+      "title": "Crooked House",
+      "titleSwedish": "Konstiga huset",
+      "releaseYear": 1949,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "b4a4e5ad-dfc7-4aa4-9a3d-d95cf0f4d0b2",
+      "title": "A Murder Is Announced",
+      "titleSwedish": "Ett mord annonseras",
+      "releaseYear": 1950,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "6d2af329-25f4-4275-80aa-90e1c355f732",
+      "title": "Three Blind Mice and Other Stories",
+      "titleSwedish": null,
+      "releaseYear": 1950,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42", "b56e6d6f-081b-444c-ad32-d237e15d9f53", "1b28a07a-cad8-49fc-88f4-12806e363a4b" ],
+      "isShortStory": true
+    },
+    {
+      "id": "5b525750-8ef2-41f3-b980-9e40279b7b0e",
+      "title": "They Came to Baghdad",
+      "titleSwedish": "En flicka kom till Bagdad",
+      "releaseYear": 1951,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "4c0a3152-8126-4f87-b207-00efedc3723b",
+      "title": "The Under Dog and Other Stories",
+      "titleSwedish": null,
+      "releaseYear": 1951,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "0e252935-c83a-4d76-8324-77d9cba755ad",
+      "title": "Mrs McGinty's Dead",
+      "titleSwedish": "Mrs McGinty är död",
+      "releaseYear": 1952,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "9811f569-e697-48e9-9e58-a936322acc5b" ],
+      "isShortStory": false
+    },
+    {
+      "id": "73fe842a-9517-467a-8086-e33bb8fdfbce",
+      "title": "They Do It with Mirrors",
+      "titleSwedish": "Trick med speglar",
+      "releaseYear": 1952,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "a9eb4d19-e907-46ac-b6eb-a5af8efcf772",
+      "title": "A Daughter's a Daughter",
+      "titleSwedish": "Kärlekens offer",
+      "releaseYear": 1952,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "87edb06f-b042-4f7f-ae5a-4243e30b503b",
+      "title": "After the Funeral",
+      "titleSwedish": "Begravningar är farliga",
+      "releaseYear": 1953,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "4648868c-fc47-49c6-aa7f-b59a9b48f15f",
+      "title": "A Pocket Full of Rye",
+      "titleSwedish": "En ficka full med råg",
+      "releaseYear": 1953,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "a3446d8e-f043-4d99-9427-209f0a7b51c4",
+      "title": "Destination Unknown",
+      "titleSwedish": "Destination okänd",
+      "releaseYear": 1954,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "c1a1b300-1812-414a-968a-573bfcea2417",
+      "title": "Hickory Dickory Dock",
+      "titleSwedish": "Mord klockan fem?",
+      "releaseYear": 1955,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "5d768667-f8e4-47d2-bc4f-847de00520af",
+      "title": "Dead Man's Folly",
+      "titleSwedish": "Död mans fåfänga",
+      "releaseYear": 1956,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "9811f569-e697-48e9-9e58-a936322acc5b" ],
+      "isShortStory": false
+    },
+    {
+      "id": "3f42bcfc-8e62-4420-9dba-15e214e57824",
+      "title": "The Burden",
+      "titleSwedish": "Två systrar; Bördan",
+      "releaseYear": 1956,
+      "genreId": "abd499ad-7f2c-42d4-865f-c164c186d4a9",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "f51007e1-5e91-44ab-952d-10036ab2c99d",
+      "title": "4.50 from Paddington",
+      "titleSwedish": "4.50 från Paddington",
+      "releaseYear": 1957,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "e935ccc7-230d-4099-941b-7b3cb621c6cb",
+      "title": "Ordeal by Innocence",
+      "titleSwedish": "Huset på udden",
+      "releaseYear": 1958,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "fa250fde-3ba0-4413-b0d8-a53d84151057",
+      "title": "Cat Among the Pigeons",
+      "titleSwedish": "Katt bland duvor",
+      "releaseYear": 1959,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "f69fe6b6-e47a-4e49-8662-8f2be5eccfc7",
+      "title": "The Adventure of the Christmas Pudding",
+      "titleSwedish": "Äventyret med julpuddingen",
+      "releaseYear": 1960,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "62e66700-a130-4039-9d3b-c8badb0e9f6d",
+      "title": "The Pale Horse",
+      "titleSwedish": "Den gula hästen",
+      "releaseYear": 1961,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "9811f569-e697-48e9-9e58-a936322acc5b" ],
+      "isShortStory": false
+    },
+    {
+      "id": "7443f21a-ac71-4c2d-8bd3-0a74e61e9bf0",
+      "title": "Double Sin and Other Stories",
+      "titleSwedish": null,
+      "releaseYear": 1961,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": true
+    },
+    {
+      "id": "eaaa001e-1a70-4c3b-b2eb-dd9c54952957",
+      "title": "The Mirror Crack'd from Side to Side",
+      "titleSwedish": "Spegeln sprack från kant till kant",
+      "releaseYear": 1962,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "a009ab77-280c-4440-8537-969279bd3e1e",
+      "title": "The Clocks",
+      "titleSwedish": "Klockorna",
+      "releaseYear": 1963,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "8b0558bc-a876-43ff-970a-1091fe3a5f74",
+      "title": "A Caribbean Mystery",
+      "titleSwedish": "Ett karibiskt mysterium",
+      "releaseYear": 1964,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "f1c4c1ef-b32b-4729-931b-dfaaffa88850",
+      "title": "At Bertram's Hotel",
+      "titleSwedish": "Bertrams hotell",
+      "releaseYear": 1965,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "bb3c7062-f6b9-4099-9be4-c7a3485fddaf",
+      "title": "Surprise! Surprise!",
+      "titleSwedish": null,
+      "releaseYear": 1965,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "5f23d325-9949-4ba7-bb1d-bf8fff44ae42", "1b28a07a-cad8-49fc-88f4-12806e363a4b" ],
+      "isShortStory": false
+    },
+    {
+      "id": "273529eb-a1db-46c0-aef7-5d0d9a298e05",
+      "title": "Third Girl",
+      "titleSwedish": "Tredje flickan",
+      "releaseYear": 1966,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "9811f569-e697-48e9-9e58-a936322acc5b" ],
+      "isShortStory": false
+    },
+    {
+      "id": "6d4fe96e-ad69-474c-8f08-6b4d4734658d",
+      "title": "Thirteen for Luck!",
+      "titleSwedish": null,
+      "releaseYear": 1966,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "5f23d325-9949-4ba7-bb1d-bf8fff44ae42", "45e676a4-9eef-4a3c-86da-56a811eb9653", "02db1bb0-aac8-4174-990a-4c96d3817aca", "1b28a07a-cad8-49fc-88f4-12806e363a4b" ],
+      "isShortStory": true
+    },
+    {
+      "id": "0b4f092f-a666-49bd-a701-6ceaeed44059",
+      "title": "13 Clues for Miss Marple",
+      "titleSwedish": null,
+      "releaseYear": 1966,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": true
+    },
+    {
+      "id": "a5486dbc-6a65-44b4-9808-b16819c83a93",
+      "title": "Endless Night",
+      "titleSwedish": "Oändlig natt",
+      "releaseYear": 1967,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "7ecd6ee8-1901-4a14-8b84-75f277d68eb8",
+      "title": "By the Pricking of My Thumbs",
+      "titleSwedish": "Ett sting i tummen",
+      "releaseYear": 1968,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "02db1bb0-aac8-4174-990a-4c96d3817aca" ],
+      "isShortStory": false
+    },
+    {
+      "id": "9447e939-2db8-4391-a22d-c4414ae79f66",
+      "title": "Hallowe'en Party",
+      "titleSwedish": "Mord på Allahelgonadagen",
+      "releaseYear": 1969,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "9811f569-e697-48e9-9e58-a936322acc5b" ],
+      "isShortStory": false
+    },
+    {
+      "id": "9f07cca0-ade0-4b59-ba13-4558c4fd5e76",
+      "title": "Passenger to Frankfurt",
+      "titleSwedish": "Passagerare till Frankfurt",
+      "releaseYear": 1970,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": false
+    },
+    {
+      "id": "f20d5c3e-66a3-4769-9fd5-a7b5d7bd1632",
+      "title": "Nemesis",
+      "titleSwedish": "Nemesis",
+      "releaseYear": 1971,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "af7ee8ce-4202-4f9e-b3c9-3a66714ef06a",
+      "title": "The Golden Ball and Other Stories",
+      "titleSwedish": null,
+      "releaseYear": 1971,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": true
+    },
+    {
+      "id": "d96bf082-941e-4402-ae6f-379491f9aa77",
+      "title": "Elephants Can Remember",
+      "titleSwedish": "Långa skuggor",
+      "releaseYear": 1972,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "9811f569-e697-48e9-9e58-a936322acc5b" ],
+      "isShortStory": false
+    },
+    {
+      "id": "46eb092b-9b03-4478-964b-b0349e9390d2",
+      "title": "Postern of Fate",
+      "titleSwedish": "Ödets port",
+      "releaseYear": 1973,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "02db1bb0-aac8-4174-990a-4c96d3817aca" ],
+      "isShortStory": false
+    },
+    {
+      "id": "7fcb9ae7-65ef-4a98-a552-fa5be4815a0d",
+      "title": "Poirot's Early Cases",
+      "titleSwedish": "Poirots problem",
+      "releaseYear": 1974,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "fe00f6a5-f755-46a7-92a3-b7a4401eaab6",
+      "title": "Curtain",
+      "titleSwedish": "Ridå - Hercule Poirots sista fall",
+      "releaseYear": 1975,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "7769c925-1ac7-41ba-b897-810cf3aa4dd9" ],
+      "isShortStory": false
+    },
+    {
+      "id": "a1109404-fe86-4dff-bdfc-6b26aa929c03",
+      "title": "Sleeping Murder",
+      "titleSwedish": "Miss Marples sista fall",
+      "releaseYear": 1976,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": false
+    },
+    {
+      "id": "52b6fe25-a055-422f-b45c-e724ba6b34dd",
+      "title": "Miss Marple's Final Cases and Two Other Stories",
+      "titleSwedish": null,
+      "releaseYear": 1979,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "5f23d325-9949-4ba7-bb1d-bf8fff44ae42" ],
+      "isShortStory": true
+    },
+    {
+      "id": "d051efe0-665c-4d2f-8f21-3c1d1f0332e8",
+      "title": "Problem at Pollensa Bay and Other Stories",
+      "titleSwedish": "Gul iris och andra mysterier",
+      "releaseYear": 1991,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53", "45e676a4-9eef-4a3c-86da-56a811eb9653", "288a9154-98ea-44f9-bccd-48453234ed53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "387b839f-43ef-44bb-adf5-4f6d0c8b8812",
+      "title": "While the Light Lasts and Other Stories",
+      "titleSwedish": null,
+      "releaseYear": 1997,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "51f8e918-9f4b-45ae-a3a8-bedd40bc5383",
+      "title": "The Harlequin Tea Set",
+      "titleSwedish": null,
+      "releaseYear": 1997,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "1b28a07a-cad8-49fc-88f4-12806e363a4b", "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "eddead71-f7c8-4f27-a291-fa9f000a7050",
+      "title": "Hercule Poirot: The Complete Short Stories",
+      "titleSwedish": null,
+      "releaseYear": 2008,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "4bc25d49-2bfa-43d4-b923-2d42004e8933",
+      "title": "Hercule Poirot and the Greenshore Folly",
+      "titleSwedish": null,
+      "releaseYear": 2014,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": false
+    },
+    {
+      "id": "28be987a-64d5-4ad4-a286-672ff51fc962",
+      "title": "The Big Four (short-story version)",
+      "titleSwedish": null,
+      "releaseYear": 2016,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [ "b56e6d6f-081b-444c-ad32-d237e15d9f53" ],
+      "isShortStory": true
+    },
+    {
+      "id": "5fba7b7d-ccd6-4ab0-af08-943ea155d264",
+      "title": "The Last Séance: Tales of the Supernatural",
+      "titleSwedish": null,
+      "releaseYear": 2019,
+      "genreId": "ca226d4a-9afe-41a7-b6af-0cc9a1507622",
+      "detectiveIds": [],
+      "isShortStory": true
     }
   ]
 }
