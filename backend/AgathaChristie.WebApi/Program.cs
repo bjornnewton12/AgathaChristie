@@ -2,10 +2,13 @@ using System.Text;
 using AgathaChristie.Application.DTOs;
 using AgathaChristie.Application.Interfaces;
 using AgathaChristie.Application.Services;
+using AgathaChristie.Application.UseCases.Auth.CheckUsername;
+using AgathaChristie.Application.UseCases.Auth.LoginUser;
+using AgathaChristie.Application.UseCases.Auth.RegisterUser;
+using AgathaChristie.Application.UseCases.Users.GetCurrentUser;
 using AgathaChristie.Infrastructure.Data;
 using AgathaChristie.Infrastructure.Repositories;
-using AuthService = AgathaChristie.Infrastructure.Services.AuthService;
-using JwtTokenService = AgathaChristie.Infrastructure.Services.JwtTokenService;
+using AgathaChristie.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -14,6 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("Default") ?? "Data Source=agatha.db"));
@@ -24,8 +28,13 @@ builder.Services.AddScoped<IDetectiveRepository, DetectiveRepository>();
 builder.Services.AddScoped<IGenreRepository, GenreRepository>();
 builder.Services.AddScoped<DetectiveService>();
 builder.Services.AddScoped<GenreService>();
-builder.Services.AddScoped<AuthService>();
-builder.Services.AddScoped<JwtTokenService>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<RegisterUserHandler>();
+builder.Services.AddScoped<LoginUserHandler>();
+builder.Services.AddScoped<CheckUsernameHandler>();
+builder.Services.AddScoped<GetCurrentUserHandler>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -46,7 +55,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 builder.Services.AddCors(options =>
-      options.AddDefaultPolicy(policy => policy.WithOrigins("http://localhost:5173").AllowAnyMethod().AllowAnyHeader()));
+    options.AddDefaultPolicy(policy => policy.WithOrigins("http://localhost:5173").AllowAnyMethod().AllowAnyHeader()));
 
 var app = builder.Build();
 
@@ -67,17 +76,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseCors();
 
-app.MapPost("/auth/register", async (RegisterRequest req, AuthService auth, JwtTokenService jwt) =>
-{
-    var user = await auth.RegisterAsync(req.Username, req.Password);
-    return user is null ? Results.Conflict("Username already taken") : Results.Ok(new { token = jwt.GenerateToken(user) });
-});
-
-app.MapPost("/auth/login", async (LoginRequest req, AuthService auth, JwtTokenService jwt) =>
-{
-    var user = await auth.LoginAsync(req.Username, req.Password);
-    return user is null ? Results.Unauthorized() : Results.Ok(new { token = jwt.GenerateToken(user) });
-});
+app.MapControllers();
 
 app.MapGet("/books", async (BookService service) =>
     Results.Ok(await service.GetAllAsync()));
@@ -97,8 +96,7 @@ app.MapPut("/books/{id:guid}", async (Guid id, BookRequest request, BookService 
 app.MapGet("/detectives", async (DetectiveService service) =>
     Results.Ok(await service.GetAllAsync()));
 
-app.MapGet("/detectives/{id:guid}", async (Guid id, DetectiveService
-service) =>
+app.MapGet("/detectives/{id:guid}", async (Guid id, DetectiveService service) =>
 {
     var detective = await service.GetByIdAsync(id);
     return detective is null ? Results.NotFound() : Results.Ok(detective);
@@ -114,6 +112,3 @@ app.MapGet("/genres/{id:guid}", async (Guid id, GenreService service) =>
 });
 
 app.Run();
-
-record RegisterRequest(string Username, string Password);
-record LoginRequest(string Username, string Password);
