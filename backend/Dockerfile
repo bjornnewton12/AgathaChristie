@@ -6,4 +6,8 @@ RUN dotnet publish AgathaChristieBooks.sln -c Release -o /app/publish
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/publish .
+
+ENV ASPNETCORE_URLS=http://+:10000
+EXPOSE 10000
+
 ENTRYPOINT ["dotnet", "AgathaChristie.WebApi.dll"]

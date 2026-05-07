@@ -7,7 +7,7 @@ public class BookRequest
     public int ReleaseYear { get; set; }
     public bool IsShortStory { get; set; }
     public string? Synopsis { get; set; }
-    public string? Trivia { get; set; }
+    public List<string> Trivia { get; set; } = [];
     public Guid GenreId { get; set; }
     public List<Guid> DetectiveIds { get; set; } = [];
   }

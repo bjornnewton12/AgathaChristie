@@ -1,3 +1,4 @@
+using System.Text.Json;
 using AgathaChristie.Application.DTOs;
 using AgathaChristie.Application.Interfaces;
 
@@ -33,12 +34,19 @@ public class BookService
             ReleaseYear = request.ReleaseYear,
             IsShortStory = request.IsShortStory,
             Synopsis = request.Synopsis,
-            Trivia = request.Trivia,
+            Trivia = JsonSerializer.Serialize(request.Trivia),
             GenreId = request.GenreId
         };
 
         var updated = await _bookRepository.UpdateAsync(id, book, request.DetectiveIds);
         return updated is null ? null : MapToResponse(updated);
+    }
+
+    private static List<string> DeserializeTrivia(string? trivia)
+    {
+        if (trivia is null) return [];
+        try { return JsonSerializer.Deserialize<List<string>>(trivia) ?? [trivia]; }
+        catch { return [trivia]; }
     }
 
     private static BookResponse MapToResponse(Domain.Models.Book book) => new()
@@ -49,7 +57,7 @@ public class BookService
         ReleaseYear = book.ReleaseYear,
         IsShortStory = book.IsShortStory,
         Synopsis = book.Synopsis,
-        Trivia = book.Trivia,
+        Trivia = DeserializeTrivia(book.Trivia),
         Genre = new GenreResponse { Id = book.Genre.Id, Name = book.Genre.Name },
         Detectives = book.BookDetectives.Select(bd => new DetectiveResponse
         {

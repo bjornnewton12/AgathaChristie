@@ -8,7 +8,7 @@ public class BookResponse
     public int ReleaseYear { get; set; }
     public bool IsShortStory { get; set; }
     public string? Synopsis { get; set; }
-    public string? Trivia { get; set; }
+    public List<string> Trivia { get; set; } = [];
     public GenreResponse Genre { get; set; } = null!;
     public IEnumerable<DetectiveResponse> Detectives { get; set; } = [];
 }

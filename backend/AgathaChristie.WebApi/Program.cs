@@ -6,6 +6,8 @@ using AgathaChristie.Application.UseCases.Auth.CheckUsername;
 using AgathaChristie.Application.UseCases.Auth.LoginUser;
 using AgathaChristie.Application.UseCases.Auth.RegisterUser;
 using AgathaChristie.Application.UseCases.Users.GetCurrentUser;
+using AgathaChristie.Application.UseCases.UserBooks.GetUserBooks;
+using AgathaChristie.Application.UseCases.UserBooks.UpdateUserBook;
 using AgathaChristie.Infrastructure.Data;
 using AgathaChristie.Infrastructure.Repositories;
 using AgathaChristie.Infrastructure.Services;
@@ -20,7 +22,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("Default") ?? "Data Source=agatha.db"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<BookService>();
@@ -30,11 +32,14 @@ builder.Services.AddScoped<DetectiveService>();
 builder.Services.AddScoped<GenreService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserBookRepository, UserBookRepository>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<RegisterUserHandler>();
 builder.Services.AddScoped<LoginUserHandler>();
 builder.Services.AddScoped<CheckUsernameHandler>();
 builder.Services.AddScoped<GetCurrentUserHandler>();
+builder.Services.AddScoped<GetUserBooksHandler>();
+builder.Services.AddScoped<UpdateUserBookHandler>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -54,15 +59,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
+var allowedOrigins = builder.Configuration["AllowedOrigins"]?.Split(',') ?? ["http://localhost:5173"];
 builder.Services.AddCors(options =>
-    options.AddDefaultPolicy(policy => policy.WithOrigins("http://localhost:5173").AllowAnyMethod().AllowAnyHeader()));
+    options.AddDefaultPolicy(policy => policy.WithOrigins(allowedOrigins).AllowAnyMethod().AllowAnyHeader()));
 
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.EnsureCreated();
+    db.Database.Migrate();
     await CatalogueSeeder.SeedAsync(db);
 }
 
