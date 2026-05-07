@@ -1,0 +1,15 @@
+{
+  "name": "Agatha Christie",
+  "short_name": "Agatha Christie",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "icons": [
+    {
+      "src": "/icons/AgathaChristeBooks_App_Icon_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
