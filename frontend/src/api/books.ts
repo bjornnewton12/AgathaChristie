@@ -17,7 +17,7 @@ export interface Book {
     releaseYear: number
     isShortStory: boolean
     synopsis: string | null
-    trivia: string | null
+    trivia: string[]
     genre: Genre
     detectives: Detective[]
 }
@@ -28,12 +28,12 @@ export interface BookRequest {
     releaseYear: number
     isShortStory: boolean
     synopsis: string | null
-    trivia: string | null
+    trivia: string[]
     genreId: string
     detectiveIds: string[]
 }
 
-const BASE = 'http://localhost:5018'
+const BASE = import.meta.env.VITE_API_BASE
 
 export async function fetchBooks(): Promise<Book[]> {
     const res = await fetch(`${BASE}/books`)

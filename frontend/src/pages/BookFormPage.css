@@ -41,11 +41,13 @@
     align-items: center;
     padding: 0.4rem 1rem;
     border-radius: 999px;
-    border: 2px solid #444;
-    color: var(--text-secondary);
+    border: none;
+    background-color: #2a2a2a;
+    color: var(--text-primary);
     cursor: pointer;
     font-size: 0.9rem;
     transition: all 0.15s ease;
+    white-space: nowrap;
 }
 
 .book-form-pill input {
@@ -80,10 +82,10 @@
 }
 
 .book-form-btn-cancel {
-    background: none;
-    border: 1px solid #444;
-    border-radius: var(--radius);
-    color: var(--text-secondary);
+    background-color: #2a2a2a;
+    border: none;
+    border-radius: 999px;
+    color: white;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     cursor: pointer;
@@ -92,7 +94,7 @@
 .book-form-btn-save {
     background-color: var(--accent);
     border: none;
-    border-radius: var(--radius);
+    border-radius: 999px;
     color: #121212;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;

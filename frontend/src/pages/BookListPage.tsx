@@ -1,19 +1,30 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { fetchBooks, fetchGenres, type Book, type Genre, type Detective } from '../api/books'
+import { fetchUserBooks, type UserBook } from '../api/userbooks'
+import { useAuth } from '../AuthContext'
 import './BookListPage.css'
 
+function formatDate(iso: string): string {
+    return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+}
+
 export default function BookListPage() {
+    const { token } = useAuth()
     const [books, setBooks] = useState<Book[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const [genres, setGenres] = useState<Genre[]>([])
+    const [userBookMap, setUserBookMap] = useState<Map<string, UserBook>>(new Map())
     const [selectedGenreId, setSelectedGenreId] = useState<string | null>(null)
     const [genreExpanded, setGenreExpanded] = useState(false)
     const [selectedDetectiveIds, setSelectedDetectiveIds] = useState<string[]>([])
     const [sortBy, setSortBy] = useState<'year' | 'alpha'>('year')
     const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
     const [sortExpanded, setSortExpanded] = useState(false)
+    const [statusExpanded, setStatusExpanded] = useState(false)
+    const [readFilter, setReadFilter] = useState<'read' | 'unread' | null>(null)
+    const [ownedFilter, setOwnedFilter] = useState<'owned' | 'unowned' | null>(null)
 
     useEffect(() => {
         fetchBooks()
@@ -25,6 +36,13 @@ export default function BookListPage() {
     useEffect(() => {
         fetchGenres().then(setGenres).catch(() => { })
     }, [])
+
+    useEffect(() => {
+        if (!token) return
+        fetchUserBooks(token)
+            .then(ubs => setUserBookMap(new Map(ubs.map(ub => [ub.bookId, ub]))))
+            .catch(() => { })
+    }, [token])
 
     if (loading) return <p className="page-loading">Loading...</p>
     if (error) return <p className="page-error">{error}</p>
@@ -39,8 +57,19 @@ export default function BookListPage() {
         )
         : genreFilteredBooks
 
+    const statusFilteredBooks = (readFilter !== null || ownedFilter !== null)
+        ? displayedBooks.filter(b => {
+            const ub = userBookMap.get(b.id)
+            if (readFilter === 'read' && !(ub?.isRead ?? false)) return false
+            if (readFilter === 'unread' && (ub?.isRead ?? false)) return false
+            if (ownedFilter === 'owned' && !(ub?.isOwned ?? false)) return false
+            if (ownedFilter === 'unowned' && (ub?.isOwned ?? false)) return false
+            return true
+        })
+        : displayedBooks
+
     const dir = sortDir === 'asc' ? 1 : -1
-    const sortedBooks = [...displayedBooks].sort((a, b) =>
+    const sortedBooks = [...statusFilteredBooks].sort((a, b) =>
         sortBy === 'alpha'
             ? a.title.localeCompare(b.title) * dir
             : (a.releaseYear - b.releaseYear) * dir
@@ -73,12 +102,64 @@ export default function BookListPage() {
         setSelectedDetectiveIds([])
     }
 
+    function clearStatusFilters() {
+        setReadFilter(null)
+        setOwnedFilter(null)
+        setStatusExpanded(false)
+    }
+
+    const readCount = [...userBookMap.values()].filter(ub => ub.isRead).length
+    const ownedCount = [...userBookMap.values()].filter(ub => ub.isOwned).length
+    const readPct = books.length > 0 ? Math.round((readCount / books.length) * 100) : 0
+    const ownedPct = books.length > 0 ? Math.round((ownedCount / books.length) * 100) : 0
+
     return (
         <div className="book-list">
             <img src="/logo/Logo.svg" alt="Agatha Christie" className="book-list-logo" />
+            <p className="book-stats">
+                You have read <strong>{readPct}%</strong> of her books and own <strong>{ownedPct}%</strong> of them</p>
             <div className="filter-bar">
                 <div className="filter-row">
-                    {selectedGenreId && (
+                    {(readFilter !== null || ownedFilter !== null || statusExpanded) && (
+                        <button className="filter-clear" onClick={clearStatusFilters}>
+                            <img src="/src/assets/icons/Icon_Cancel.svg" alt="Clear status filters" />
+                        </button>
+                    )}
+                    {readFilter === null && ownedFilter === null ? (
+                        <button
+                            className={`filter-pill${statusExpanded ? ' filter-pill-active' : ''}`}
+                            onClick={() => setStatusExpanded(e => !e)}
+                        >
+                            Status
+                        </button>
+                    ) : (
+                        <button className="filter-pill filter-pill-l1" onClick={() => setStatusExpanded(true)}>Status</button>
+                    )}
+                    {readFilter !== null && (
+                        <button className="filter-pill filter-pill-l2" onClick={() => { setReadFilter(null); setStatusExpanded(true) }}>
+                            {readFilter === 'read' ? 'Read' : 'Unread'}
+                        </button>
+                    )}
+                    {ownedFilter !== null && (
+                        <button className={`filter-pill ${readFilter !== null ? 'filter-pill-l3' : 'filter-pill-l2'}`} onClick={() => { setOwnedFilter(null); setStatusExpanded(true) }}>
+                            {ownedFilter === 'owned' ? 'Owns' : 'Unowned'}
+                        </button>
+                    )}
+                    {readFilter === null && (statusExpanded || ownedFilter !== null) && (
+                        <>
+                            <button className="filter-pill" onClick={() => { setReadFilter('read'); setStatusExpanded(false) }}>Read</button>
+                            <button className="filter-pill" onClick={() => { setReadFilter('unread'); setStatusExpanded(false) }}>Unread</button>
+                        </>
+                    )}
+                    {ownedFilter === null && (statusExpanded || readFilter !== null) && (
+                        <>
+                            <button className="filter-pill" onClick={() => { setOwnedFilter('owned'); setStatusExpanded(false) }}>Owns</button>
+                            <button className="filter-pill" onClick={() => { setOwnedFilter('unowned'); setStatusExpanded(false) }}>Unowned</button>
+                        </>
+                    )}
+                </div>
+                <div className="filter-row">
+                    {(selectedGenreId || genreExpanded) && (
                         <button className="filter-clear" onClick={clearFilters}>
                             <img src="/src/assets/icons/Icon_Cancel.svg" alt="Clear filters" />
                         </button>
@@ -92,10 +173,10 @@ export default function BookListPage() {
                         </button>
                     ) : (
                         <>
-                            <span className="filter-pill filter-pill-l1">Genre</span>
-                            <span className="filter-pill filter-pill-l2">
+                            <button className="filter-pill filter-pill-l1" onClick={() => { setSelectedGenreId(null); setSelectedDetectiveIds([]); setGenreExpanded(true) }}>Genre</button>
+                            <button className="filter-pill filter-pill-l2" onClick={() => { setSelectedGenreId(null); setSelectedDetectiveIds([]); setGenreExpanded(true) }}>
                                 {genres.find(g => g.id === selectedGenreId)?.name}
-                            </span>
+                            </button>
                         </>
                     )}
                     {genreExpanded && !selectedGenreId && genres.map(g => (
@@ -157,21 +238,35 @@ export default function BookListPage() {
                 </div>
             </div>
             <ul className="book-grid">
-                {sortedBooks.map(book => (
-                    <li
-                        key={book.id}
-                        className="book-card"
-                        style={{ backgroundColor: book.detectives[0]?.hexColor ?? '#EBEBEB' }}
-                    >
-                        <Link to={`/books/${book.id}`} className="book-card-link">
-                            <span className="book-card-title">{book.title}</span>
-                            <span className="book-card-meta">
-                                {book.releaseYear} | {book.genre.name}
-                                {book.detectives.length > 0 && ` | ${book.detectives.map(d => d.name).join(', ')}`}
-                            </span>
-                        </Link>
-                    </li>
-                ))}
+                {sortedBooks.map(book => {
+                    const ub = userBookMap.get(book.id)
+                    const isOwned = ub?.isOwned ?? false
+                    const isRead = ub?.isRead ?? false
+                    const dateRead = ub?.dateRead ?? null
+                    return (
+                        <li
+                            key={book.id}
+                            className="book-card"
+                            style={{ backgroundColor: isRead && isOwned ? '#DDA5FD' : isRead ? '#CFA2FE' : isOwned ? '#B39CFE' : '#A599FF' }}
+                        >
+                            <Link to={`/books/${book.id}`} className="book-card-link">
+                                <div className="book-card-header">
+                                    <span className="book-card-icon-box">
+                                        {isOwned && <img src="/src/assets/icons/Icon_Bookcase.svg" alt="Owned" className="book-card-icon-img" />}
+                                    </span>
+                                    <span className="book-card-status">
+                                        {isRead && dateRead ? `Read on ${formatDate(dateRead)}` : isRead ? 'Read' : 'Unread'}
+                                    </span>
+                                </div>
+                                <span className="book-card-title">{book.title}</span>
+                                <span className="book-card-meta">
+                                    {book.releaseYear} | {book.genre.name}
+                                    {book.detectives.length > 0 && ` | ${book.detectives.map(d => d.name).join(', ')}`}
+                                </span>
+                            </Link>
+                        </li>
+                    )
+                })}
             </ul>
         </div>
     )

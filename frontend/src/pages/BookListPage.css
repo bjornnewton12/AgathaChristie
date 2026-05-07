@@ -2,13 +2,25 @@
 .book-list {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 3rem 2rem 0;
+    overflow-x: hidden;
 }
 
 .book-list-logo {
     display: block;
-    margin: 2rem auto;
+    margin: 2rem auto 1rem;
     width: 272px;
+    max-width: 100%;
+}
+
+.book-stats {
+    font-family: 'Inknut Antiqua', serif;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0 auto 1.5rem;
+    max-width: 340px;
 }
 
 .book-grid {
@@ -19,26 +31,58 @@
 }
 
 .book-card {
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
 }
 
 .book-card-link {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    padding: 1.25rem;
+    gap: 0.25rem;
+    padding: 1.25rem 1.25rem 1.5rem;
 }
 
-.book-card-title {
-    font-size: 1.3rem;
-    font-weight: 700;
+.book-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.book-card-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #121212;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.book-card-icon-img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0);
+}
+
+.book-card-status {
+    font-size: 1rem;
     color: #121212;
 }
 
+.book-card-title {
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #121212;
+    line-height: 1.25;
+    margin-bottom: 0.55rem;
+}
+
 .book-card-meta {
-    font-size: 0.85rem;
-    color: #333;
+    font-size: 1rem;
+    color: #121212;
 }
 
 /* FILTER */
@@ -52,6 +96,7 @@
     gap: 0.5rem;
     overflow-x: auto;
     scrollbar-width: none;
+    margin-bottom: 1rem;
 }
 
 .filter-row::-webkit-scrollbar {
@@ -86,6 +131,11 @@
     font-size: 0.9rem;
     cursor: pointer;
     white-space: nowrap;
+}
+
+.filter-pill-active {
+    background-color: #DDA5FD;
+    color: #121212;
 }
 
 .filter-pill-l1 {
@@ -182,6 +232,10 @@
 }
 
 @media (max-width: 480px) {
+    .book-list {
+        padding: 3rem 1rem 0;
+    }
+
     .book-grid {
         grid-template-columns: 1fr;
     }

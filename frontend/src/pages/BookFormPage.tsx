@@ -17,7 +17,7 @@ export default function BookFormPage() {
     const [error, setError] = useState<string | null>(null)
     const [form, setForm] = useState<Pick<BookRequest, 'synopsis' | 'trivia' | 'detectiveIds'>>({
         synopsis: null,
-        trivia: null,
+        trivia: [],
         detectiveIds: []
     })
     const [base, setBase] = useState<BookRequest | null>(null)
@@ -90,14 +90,14 @@ export default function BookFormPage() {
                     </div>
                 </div>
                 <div className="book-form-field">
-                    <label className="book-form-label">Synopsis</label>
+                    <h2>Synopsis</h2>
                     <textarea className="book-form-textarea" value={form.synopsis ?? ''} onChange={e => setForm(f =>
                         ({ ...f, synopsis: e.target.value || null }))} />
                 </div>
                 <div className="book-form-field">
-                    <label className="book-form-label">Trivia</label>
-                    <textarea className="book-form-textarea" value={form.trivia ?? ''} onChange={e => setForm(f =>
-                        ({ ...f, trivia: e.target.value || null }))} />
+                    <h2>Trivia</h2>
+                    <textarea className="book-form-textarea" value={form.trivia.join('\n')} onChange={e => setForm(f =>
+                        ({ ...f, trivia: e.target.value.split('\n').filter(l => l.trim()) }))} />
                 </div>
                 <div className="book-form-actions">
                     <button type="button" className="book-form-btn-cancel" onClick={() => navigate(`/books/${id}`)}>Cancel</button>

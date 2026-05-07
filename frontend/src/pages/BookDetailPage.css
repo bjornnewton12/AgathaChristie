@@ -20,6 +20,7 @@
 }
 
 .book-detail-title {
+    font-family: 'Inknut Antiqua', serif;
     font-size: 2.5rem;
     font-weight: 700;
     color: #121212;
@@ -31,6 +32,7 @@
     font-size: 1.5rem;
     color: #121212;
     margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
 .book-detail-body {
@@ -39,7 +41,76 @@
 
 .book-detail-meta {
     color: white;
+    margin-bottom: 1rem;
+}
+
+.book-detail-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     margin-bottom: 1.5rem;
+}
+
+.book-detail-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+}
+
+.toggle-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border: 2px solid var(--text-primary);
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.toggle-icon-img {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+}
+
+.read-date-picker {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border-radius: 10px;
+    margin-top: 0.25rem;
+}
+
+.read-date-picker input[type="date"] {
+    flex: 1;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.95rem;
+    background: var(--bg);
+    color: var(--text-primary);
+}
+
+.read-date-picker button {
+    white-space: nowrap;
+    background: var(--accent);
+    height: 36px;
+    color: #121212;
+    border: none;
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 .book-detail-body section {
@@ -50,4 +121,27 @@
     font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
+}
+
+.trivia-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.trivia-item-view {
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    background: var(--surface);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.trivia-item-view::before {
+    content: '•';
+    color: var(--accent);
+    flex-shrink: 0;
 }
