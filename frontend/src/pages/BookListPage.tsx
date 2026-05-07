@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom'
 import { fetchBooks, fetchGenres, type Book, type Genre, type Detective } from '../api/books'
 import { fetchUserBooks, type UserBook } from '../api/userbooks'
 import { useAuth } from '../AuthContext'
+import cancelIcon from '../assets/icons/Icon_Cancel.svg'
+import sortIcon from '../assets/icons/Icon_Sort.svg'
+import arrowDownIcon from '../assets/icons/Icon_Arrow_Down.svg'
+import arrowUpIcon from '../assets/icons/Icon_Arrow_Up.svg'
+import bookcaseIcon from '../assets/icons/Icon_Bookcase.svg'
 import './BookListPage.css'
 
 function formatDate(iso: string): string {
@@ -122,7 +127,7 @@ export default function BookListPage() {
                 <div className="filter-row">
                     {(readFilter !== null || ownedFilter !== null || statusExpanded) && (
                         <button className="filter-clear" onClick={clearStatusFilters}>
-                            <img src="/src/assets/icons/Icon_Cancel.svg" alt="Clear status filters" />
+                            <img src={cancelIcon} alt="Clear status filters" />
                         </button>
                     )}
                     {readFilter === null && ownedFilter === null ? (
@@ -161,7 +166,7 @@ export default function BookListPage() {
                 <div className="filter-row">
                     {(selectedGenreId || genreExpanded) && (
                         <button className="filter-clear" onClick={clearFilters}>
-                            <img src="/src/assets/icons/Icon_Cancel.svg" alt="Clear filters" />
+                            <img src={cancelIcon} alt="Clear filters" />
                         </button>
                     )}
                     {!selectedGenreId ? (
@@ -209,7 +214,7 @@ export default function BookListPage() {
                 </div>
                 <div className="sort-trigger-row">
                     <button className="sort-trigger" onClick={() => setSortExpanded(e => !e)}>
-                        <img src="/src/assets/icons/Icon_Sort.svg" alt="Sort" />
+                        <img src={sortIcon} alt="Sort" />
                         {sortBy === 'year' ? 'Year' : 'Alphabetical'}
                     </button>
                     {sortExpanded && (
@@ -221,7 +226,7 @@ export default function BookListPage() {
                             >
                                 Year
                                 {sortBy === 'year' && (
-                                    <img src={`/src/assets/icons/${sortDir === 'asc' ? 'Icon_Arrow_Down.svg' : 'Icon_Arrow_Up.svg'}`} alt="" />
+                                    <img src={sortDir === 'asc' ? arrowDownIcon : arrowUpIcon} alt="" />
                                 )}
                             </button>
                             <button
@@ -230,7 +235,7 @@ export default function BookListPage() {
                             >
                                 Alphabetical
                                 {sortBy === 'alpha' && (
-                                    <img src={`/src/assets/icons/${sortDir === 'asc' ? 'Icon_Arrow_Down.svg' : 'Icon_Arrow_Up.svg'}`} alt="" />
+                                    <img src={sortDir === 'asc' ? arrowDownIcon : arrowUpIcon} alt="" />
                                 )}
                             </button>
                         </div>
@@ -252,7 +257,7 @@ export default function BookListPage() {
                             <Link to={`/books/${book.id}`} className="book-card-link">
                                 <div className="book-card-header">
                                     <span className="book-card-icon-box">
-                                        {isOwned && <img src="/src/assets/icons/Icon_Bookcase.svg" alt="Owned" className="book-card-icon-img" />}
+                                        {isOwned && <img src={bookcaseIcon} alt="Owned" className="book-card-icon-img" />}
                                     </span>
                                     <span className="book-card-status">
                                         {isRead && dateRead ? `Read on ${formatDate(dateRead)}` : isRead ? 'Read' : 'Unread'}
