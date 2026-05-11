@@ -118,6 +118,10 @@
     margin-bottom: 1.5rem;
 }
 
+.book-detail-body section p {
+    white-space: pre-wrap;
+}
+
 .book-detail-body h2 {
     font-size: 1.3rem;
     font-weight: 700;
