@@ -39,6 +39,15 @@ export default function BookListPage() {
     }, [])
 
     useEffect(() => {
+        if (loading) return
+        const saved = sessionStorage.getItem('bookListScrollY')
+        if (saved) {
+            window.scrollTo(0, parseInt(saved, 10))
+            sessionStorage.removeItem('bookListScrollY')
+        }
+    }, [loading])
+
+    useEffect(() => {
         fetchGenres().then(setGenres).catch(() => { })
     }, [])
 
@@ -253,6 +262,7 @@ export default function BookListPage() {
                             key={book.id}
                             className="book-card"
                             style={{ backgroundColor: isRead && isOwned ? '#DDA5FD' : isRead ? '#CFA2FE' : isOwned ? '#B39CFE' : '#A599FF' }}
+                            onClick={() => sessionStorage.setItem('bookListScrollY', String(window.scrollY))}
                         >
                             <Link to={`/books/${book.id}`} className="book-card-link">
                                 <div className="book-card-header">

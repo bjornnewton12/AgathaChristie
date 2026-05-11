@@ -3,7 +3,7 @@
 }
 
 .book-detail-hero {
-    padding: calc(env(safe-area-inset-top) + 1rem) 1.5rem 1.5rem 1.5rem;
+    padding: max(3rem, calc(env(safe-area-inset-top) + 1rem)) 1.5rem 1.5rem 1.5rem;
     border-radius: 0 0 24px 24px;
 }
 
