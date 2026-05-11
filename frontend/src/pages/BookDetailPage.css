@@ -3,7 +3,7 @@
 }
 
 .book-detail-hero {
-    padding: 3rem 1.5rem 1.5rem 1.5rem;
+    padding: calc(env(safe-area-inset-top) + 1rem) 1.5rem 1.5rem 1.5rem;
     border-radius: 0 0 24px 24px;
 }
 
@@ -99,6 +99,7 @@
     font-size: 0.95rem;
     background: var(--bg);
     color: var(--text-primary);
+    color-scheme: dark;
 }
 
 .read-date-picker button {
