@@ -23,6 +23,11 @@ export default function BookDetailPage() {
     const [selectedDate, setSelectedDate] = useState('')
 
     useEffect(() => {
+        document.body.style.overscrollBehavior = 'none'
+        return () => { document.body.style.overscrollBehavior = '' }
+    }, [])
+
+    useEffect(() => {
         if (!id) return
         fetchBook(id).then(setBook).catch(() => setError('Could not load book'))
     }, [id])
