@@ -1,5 +1,6 @@
 .book-detail {
     width: 100%;
+    min-height: 100vh;
 }
 
 .book-detail-hero {
@@ -37,6 +38,7 @@
 
 .book-detail-body {
     padding: 1.5rem;
+    background: var(--bg);
 }
 
 .book-detail-meta {

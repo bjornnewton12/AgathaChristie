@@ -77,8 +77,12 @@ export default function BookDetailPage() {
     const heroColor = isRead && isOwned ? '#DDA5FD' : isRead ? '#CFA2FE' : isOwned ? '#B39CFE' : '#A599FF'
 
     useEffect(() => {
-        document.body.style.backgroundColor = heroColor
-        return () => { document.body.style.backgroundColor = '' }
+        document.documentElement.style.backgroundColor = heroColor
+        document.body.style.marginBottom = '0'
+        return () => {
+            document.documentElement.style.backgroundColor = ''
+            document.body.style.marginBottom = ''
+        }
     }, [heroColor])
 
     if (error) return <p className="page-error">{error}</p>
