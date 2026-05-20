@@ -99,7 +99,6 @@
     font-size: 0.95rem;
     background: var(--bg);
     color: var(--text-primary);
-    color-scheme: dark;
 }
 
 .read-date-picker button {
