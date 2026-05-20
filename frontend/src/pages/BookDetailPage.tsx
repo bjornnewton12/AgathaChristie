@@ -72,22 +72,12 @@ export default function BookDetailPage() {
         await updateUserBook(id, { isRead, dateRead, isOwned }, token)
     }
 
-    const isRead = userBook?.isRead ?? false
-    const isOwned = userBook?.isOwned ?? false
-    const heroColor = isRead && isOwned ? '#DDA5FD' : isRead ? '#CFA2FE' : isOwned ? '#B39CFE' : '#A599FF'
-
-    useEffect(() => {
-        document.documentElement.style.backgroundColor = heroColor
-        document.body.style.marginBottom = '0'
-        return () => {
-            document.documentElement.style.backgroundColor = ''
-            document.body.style.marginBottom = ''
-        }
-    }, [heroColor])
-
     if (error) return <p className="page-error">{error}</p>
     if (!book) return <p className="page-loading">Loading...</p>
 
+    const isRead = userBook?.isRead ?? false
+    const isOwned = userBook?.isOwned ?? false
+    const heroColor = isRead && isOwned ? '#DDA5FD' : isRead ? '#CFA2FE' : isOwned ? '#B39CFE' : '#A599FF'
     const dateRead = userBook?.dateRead ?? null
 
     return (

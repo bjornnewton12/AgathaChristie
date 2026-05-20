@@ -1,6 +1,5 @@
 .book-detail {
     width: 100%;
-    min-height: 100vh;
 }
 
 .book-detail-hero {
@@ -38,7 +37,6 @@
 
 .book-detail-body {
     padding: 1.5rem;
-    background: var(--bg);
 }
 
 .book-detail-meta {
@@ -100,6 +98,14 @@
     padding: 0.4rem 0.6rem;
     font-size: 0.95rem;
     background: var(--bg);
+    color: var(--text-primary);
+}
+
+.read-date-picker input[type="date"]::-webkit-datetime-edit,
+.read-date-picker input[type="date"]::-webkit-datetime-edit-text,
+.read-date-picker input[type="date"]::-webkit-datetime-edit-month-field,
+.read-date-picker input[type="date"]::-webkit-datetime-edit-day-field,
+.read-date-picker input[type="date"]::-webkit-datetime-edit-year-field {
     color: var(--text-primary);
 }
 
