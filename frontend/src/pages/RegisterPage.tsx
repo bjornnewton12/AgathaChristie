@@ -74,7 +74,7 @@ export default function RegisterPage() {
                 </div>
                 {error && <p className="auth-error">{error}</p>}
                 <button type="submit" className="auth-submit" disabled={loading}>
-                    {loading ? 'Registering…' : 'Registrer'}
+                    {loading ? 'Registering…' : 'Register'}
                 </button>
                 <Link to="/login" className="auth-link">Or go back to login</Link>
             </form>
