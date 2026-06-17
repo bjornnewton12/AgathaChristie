@@ -1,242 +1,266 @@
 /* BOOK CARDS*/
 .book-list {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 2rem 0;
-    overflow-x: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem 0;
+  overflow-x: hidden;
 }
 
 .book-list-logo {
-    display: block;
-    margin: 2rem auto 1rem;
-    width: 272px;
-    max-width: 100%;
+  display: block;
+  margin: 2rem auto 1rem;
+  width: 272px;
+  max-width: 100%;
 }
 
 .book-stats {
-    font-family: 'Inknut Antiqua', serif;
-    text-align: center;
-    font-size: 1.3rem;
-    font-weight: 400;
-    line-height: 1.4;
-    margin: 0 auto 1.5rem;
-    max-width: 340px;
+  font-family: "Inknut Antiqua", serif;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 auto 1.5rem;
+  max-width: 340px;
 }
 
 .book-grid {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 
 .book-card {
-    border-radius: 20px;
-    overflow: hidden;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .book-card-link {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 1.25rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.25rem 1.25rem 1.5rem;
 }
 
 .book-card-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .book-card-icon-box {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #121212;
-    border-radius: 6px;
-    flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #121212;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
 .book-card-icon-img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0);
+  width: 24px;
+  height: 24px;
+  filter: brightness(0);
 }
 
 .book-card-status {
-    font-size: 1rem;
-    color: #121212;
+  font-size: 1rem;
+  color: #121212;
 }
 
 .book-card-title {
-    font-family: 'Inknut Antiqua', serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #121212;
-    line-height: 1.25;
-    margin-bottom: 0.55rem;
+  font-family: "Inknut Antiqua", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #121212;
+  line-height: 1.25;
+  margin-bottom: 0.55rem;
 }
 
 .book-card-meta {
-    font-size: 1rem;
-    color: #121212;
+  font-size: 1rem;
+  color: #121212;
 }
 
 /* FILTER */
 .filter-bar {
-    padding: 0 0 1rem 0;
+  padding: 0 0 1rem 0;
 }
 
 .filter-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: 1rem;
 }
 
 .filter-row::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .filter-clear {
-    flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    border: none;
-    background-color: #2a2a2a;
-    color: var(--text-primary);
-    font-size: 1.1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: none;
+  background-color: #2a2a2a;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .filter-pill {
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    height: 36px;
-    padding: 0 1rem;
-    border-radius: 999px;
-    border: none;
-    background-color: #2a2a2a;
-    color: var(--text-primary);
-    font-size: 0.9rem;
-    cursor: pointer;
-    white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: none;
+  background-color: #2a2a2a;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .filter-pill-active {
-    background-color: #DDA5FD;
-    color: #121212;
+  background-color: #dda5fd;
+  color: #121212;
 }
 
 .filter-pill-l1 {
-    background-color: #DDA5FD;
-    color: #121212;
-    position: relative;
-    z-index: 3;
+  background-color: #dda5fd;
+  color: #121212;
+  position: relative;
+  z-index: 3;
 }
 
 .filter-pill-l2 {
-    background-color: #D58BFF;
-    color: #121212;
-    border-radius: 0 999px 999px 0;
-    margin-left: -25px;
-    padding-left: 1.5rem;
-    position: relative;
-    z-index: 2;
+  background-color: #d58bff;
+  color: #121212;
+  border-radius: 0 999px 999px 0;
+  margin-left: -25px;
+  padding-left: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .filter-pill-l3 {
-    background-color: #CB71FF;
-    color: #121212;
-    border-radius: 0 999px 999px 0;
-    margin-left: -24px;
-    padding-left: 1.5rem;
-    position: relative;
-    z-index: 1;
+  background-color: #cb71ff;
+  color: #121212;
+  border-radius: 0 999px 999px 0;
+  margin-left: -24px;
+  padding-left: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* SORT */
 .sort-trigger-row {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
 .sort-trigger {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: none;
-    border: none;
-    color: var(--text-primary);
-    font-size: 0.9rem;
-    cursor: pointer;
-    padding: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.25rem 0;
 }
 
 .sort-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #1e1e1e;
-    border-radius: 12px;
-    padding: 1rem 1.5rem;
-    z-index: 10;
-    min-width: 180px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  z-index: 10;
+  min-width: 180px;
 }
 
 .sort-heading {
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin: 0 0 0.75rem 0;
-    color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem 0;
+  color: var(--text-primary);
 }
 
 .sort-option {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: none;
-    border: none;
-    color: var(--text-primary);
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0.3rem 0;
-    width: 100%;
-    text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  width: 100%;
+  text-align: left;
 }
 
 .sort-option-active {
-    color: #DDA5FD;
+  color: #dda5fd;
 }
 
 .sort-option-active img {
-    filter: brightness(0) saturate(100%) invert(72%) sepia(40%) saturate(800%) hue-rotate(243deg) brightness(108%);
+  filter: brightness(0) saturate(100%) invert(72%) sepia(40%) saturate(800%)
+    hue-rotate(243deg) brightness(108%);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #f7f7f7;
+  border-radius: 999px;
+  padding: 0.65rem 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #121212;
+}
+
+.search-input::placeholder {
+  color: #121212;
 }
 
 @media (max-width: 768px) {
-    .book-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 480px) {
-    .book-list {
-        padding: 3rem 1rem 0;
-    }
+  .book-list {
+    padding: 3rem 1rem 0;
+  }
 
-    .book-grid {
-        grid-template-columns: 1fr;
-    }
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
 }

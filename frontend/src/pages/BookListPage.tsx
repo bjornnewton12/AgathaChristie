@@ -8,6 +8,7 @@ import sortIcon from '../assets/icons/Icon_Sort.svg'
 import arrowDownIcon from '../assets/icons/Icon_Arrow_Down.svg'
 import arrowUpIcon from '../assets/icons/Icon_Arrow_Up.svg'
 import bookcaseIcon from '../assets/icons/Icon_Bookcase.svg'
+import searchIcon from '../assets/icons/Icon_Search.svg'
 import './BookListPage.css'
 
 function formatDate(iso: string): string {
@@ -19,6 +20,7 @@ export default function BookListPage() {
     const [books, setBooks] = useState<Book[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+    const [searchQuery, setSearchQuery] = useState('')
     const [genres, setGenres] = useState<Genre[]>([])
     const [userBookMap, setUserBookMap] = useState<Map<string, UserBook>>(new Map())
     const [selectedGenreId, setSelectedGenreId] = useState<string | null>(null)
@@ -89,6 +91,11 @@ export default function BookListPage() {
             : (a.releaseYear - b.releaseYear) * dir
     )
 
+    const visibleBooks = searchQuery.trim()
+        ? sortedBooks.filter(b =>
+            b.title.toLowerCase().includes(searchQuery.toLowerCase()))
+        : sortedBooks
+
     const availableDetectives: Detective[] = selectedGenreId
         ? Array.from(
             new Map(
@@ -132,6 +139,19 @@ export default function BookListPage() {
             <img src="/logo/Logo.svg" alt="Agatha Christie" className="book-list-logo" />
             <p className="book-stats">
                 You have read <strong>{readPct}%</strong> of her books and own <strong>{ownedPct}%</strong> of them</p>
+
+            
+            <div className='search-bar'>
+                <img src={searchIcon} alt="" className="search-icon" />
+                <input 
+                type='text'
+                className='search-input'
+                placeholder='Search for book...'
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                />
+            </div>
+
             <div className="filter-bar">
                 <div className="filter-row">
                     {(readFilter !== null || ownedFilter !== null || statusExpanded) && (
@@ -252,7 +272,7 @@ export default function BookListPage() {
                 </div>
             </div>
             <ul className="book-grid">
-                {sortedBooks.map(book => {
+                {visibleBooks.map(book => {
                     const ub = userBookMap.get(book.id)
                     const isOwned = ub?.isOwned ?? false
                     const isRead = ub?.isRead ?? false
