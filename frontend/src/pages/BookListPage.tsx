@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import LoadingScreen from '../components/LoadingScreen'
 import { fetchBooks, fetchGenres, type Book, type Genre, type Detective } from '../api/books'
 import { fetchUserBooks, type UserBook } from '../api/userbooks'
 import { useAuth } from '../AuthContext'
@@ -60,7 +61,7 @@ export default function BookListPage() {
             .catch(() => { })
     }, [token])
 
-    if (loading) return <p className="page-loading">Loading...</p>
+    if (loading) return <LoadingScreen />
     if (error) return <p className="page-error">{error}</p>
 
     const genreFilteredBooks = selectedGenreId
