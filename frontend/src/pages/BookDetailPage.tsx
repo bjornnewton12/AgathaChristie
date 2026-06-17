@@ -77,7 +77,7 @@ export default function BookDetailPage() {
 
     const isRead = userBook?.isRead ?? false
     const isOwned = userBook?.isOwned ?? false
-    const heroColor = isRead && isOwned ? '#DDA5FD' : isRead ? '#CFA2FE' : isOwned ? '#B39CFE' : '#A599FF'
+    const heroColor = isRead && isOwned ? '#22C5BF' : isRead ? '#82D1A3' : isOwned ? '#FFC25D' : '#FF7342'
     const dateRead = userBook?.dateRead ?? null
 
     return (

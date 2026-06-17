@@ -282,7 +282,7 @@ export default function BookListPage() {
                         <li
                             key={book.id}
                             className="book-card"
-                            style={{ backgroundColor: isRead && isOwned ? '#DDA5FD' : isRead ? '#CFA2FE' : isOwned ? '#B39CFE' : '#A599FF' }}
+                            style={{ backgroundColor: isRead && isOwned ? '#22C5BF' : isRead ? '#82D1A3' : isOwned ? '#FFC25D' : '#FF7342' }}
                             onClick={() => sessionStorage.setItem('bookListScrollY', String(window.scrollY))}
                         >
                             <Link to={`/books/${book.id}`} className="book-card-link">

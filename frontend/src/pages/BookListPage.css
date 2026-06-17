@@ -134,19 +134,19 @@
 }
 
 .filter-pill-active {
-  background-color: #dda5fd;
+  background-color: #68DCD8;
   color: #121212;
 }
 
 .filter-pill-l1 {
-  background-color: #dda5fd;
+  background-color: #68DCD8;
   color: #121212;
   position: relative;
   z-index: 3;
 }
 
 .filter-pill-l2 {
-  background-color: #d58bff;
+  background-color: #45CDC8;
   color: #121212;
   border-radius: 0 999px 999px 0;
   margin-left: -25px;
@@ -156,7 +156,7 @@
 }
 
 .filter-pill-l3 {
-  background-color: #cb71ff;
+  background-color: #22C5BF;
   color: #121212;
   border-radius: 0 999px 999px 0;
   margin-left: -24px;
@@ -218,12 +218,7 @@
 }
 
 .sort-option-active {
-  color: #dda5fd;
-}
-
-.sort-option-active img {
-  filter: brightness(0) saturate(100%) invert(72%) sepia(40%) saturate(800%)
-    hue-rotate(243deg) brightness(108%);
+  color: #68DCD8;
 }
 
 .search-bar {
