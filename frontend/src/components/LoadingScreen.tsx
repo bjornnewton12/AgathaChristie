@@ -11,7 +11,7 @@ export default function LoadingScreen() {
       <p className="book-stats">
         Loading books,
         <br />
-        this may take a minute
+        this will take some time
       </p>
       <div className="loading-dots">
         <span />
