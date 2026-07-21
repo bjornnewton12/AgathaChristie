@@ -5,5 +5,6 @@ public sealed record UpdateUserBookCommand(
     Guid BookId,
     bool IsRead,
     DateTime? DateRead,
-    bool IsOwned
+    bool IsOwnedEnglish,
+    bool IsOwnedSwedish
 );

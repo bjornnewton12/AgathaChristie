@@ -36,7 +36,7 @@ public sealed class UserBooksController : ControllerBase
         var userId = GetUserId();
         if (userId is null) return Unauthorized();
 
-        var cmd = new UpdateUserBookCommand(userId.Value, bookId, request.IsRead, request.DateRead, request.IsOwned);
+        var cmd = new UpdateUserBookCommand(userId.Value, bookId, request.IsRead, request.DateRead, request.IsOwnedEnglish, request.IsOwnedSwedish);
         await _updateHandler.HandleAsync(cmd);
         return NoContent();
     }
@@ -48,4 +48,4 @@ public sealed class UserBooksController : ControllerBase
     }
 }
 
-public sealed record UpdateUserBookRequest(bool IsRead, DateTime? DateRead, bool IsOwned);
+public sealed record UpdateUserBookRequest(bool IsRead, DateTime? DateRead, bool IsOwnedEnglish, bool IsOwnedSwedish);

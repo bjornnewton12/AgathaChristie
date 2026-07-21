@@ -9,5 +9,6 @@ public class UserBook
     public Book Book { get; set; } = null!;
     public bool IsRead { get; set; }
     public DateTime? DateRead { get; set; }
-    public bool IsOwned { get; set; }
+    public bool IsOwnedEnglish { get; set; }
+    public bool IsOwnedSwedish { get; set; }
 }

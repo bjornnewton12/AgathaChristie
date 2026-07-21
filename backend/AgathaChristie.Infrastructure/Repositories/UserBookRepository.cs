@@ -10,7 +10,7 @@ public class UserBookRepository(AppDbContext db) : IUserBookRepository
     public async Task<IEnumerable<UserBook>> GetAllForUserAsync(Guid userId) =>
         await db.UserBooks.Where(ub => ub.UserId == userId).ToListAsync();
 
-    public async Task UpsertAsync(Guid userId, Guid bookId, bool isRead, DateTime? dateRead, bool isOwned)
+    public async Task UpsertAsync(Guid userId, Guid bookId, bool isRead, DateTime? dateRead, bool isOwnedEnglish, bool isOwnedSwedish)
     {
         var existing = await db.UserBooks.FirstOrDefaultAsync(ub => ub.UserId == userId && ub.BookId == bookId);
 
@@ -23,14 +23,16 @@ public class UserBookRepository(AppDbContext db) : IUserBookRepository
                 BookId = bookId,
                 IsRead = isRead,
                 DateRead = dateRead,
-                IsOwned = isOwned
+                IsOwnedEnglish = isOwnedEnglish,
+                IsOwnedSwedish = isOwnedSwedish
             });
         }
         else
         {
             existing.IsRead = isRead;
             existing.DateRead = dateRead;
-            existing.IsOwned = isOwned;
+            existing.IsOwnedEnglish = isOwnedEnglish;
+            existing.IsOwnedSwedish = isOwnedSwedish;
         }
 
         await db.SaveChangesAsync();

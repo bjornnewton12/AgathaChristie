@@ -4,5 +4,6 @@ public sealed record UserBookDto(
     Guid BookId,
     bool IsRead,
     DateTime? DateRead,
-    bool IsOwned
+    bool IsOwnedEnglish,
+    bool IsOwnedSwedish
 );
