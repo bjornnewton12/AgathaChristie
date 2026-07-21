@@ -4,7 +4,8 @@ export interface UserBook {
     bookId: string
     isRead: boolean
     dateRead: string | null
-    isOwned: boolean
+    isOwnedEnglish: boolean
+    isOwnedSwedish: boolean
 }
 
 export async function fetchUserBooks(token: string): Promise<UserBook[]> {
@@ -17,7 +18,7 @@ export async function fetchUserBooks(token: string): Promise<UserBook[]> {
 
 export async function updateUserBook(
     bookId: string,
-    data: { isRead: boolean; dateRead: string | null; isOwned: boolean },
+    data: { isRead: boolean; dateRead: string | null; isOwnedEnglish: boolean; isOwnedSwedish: boolean },
     token: string
 ): Promise<void> {
     const res = await fetch(`${BASE}/api/userbooks/${bookId}`, {

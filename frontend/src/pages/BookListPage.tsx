@@ -8,12 +8,17 @@ import cancelIcon from '../assets/icons/Icon_Cancel.svg'
 import sortIcon from '../assets/icons/Icon_Sort.svg'
 import arrowDownIcon from '../assets/icons/Icon_Arrow_Down.svg'
 import arrowUpIcon from '../assets/icons/Icon_Arrow_Up.svg'
-import bookcaseIcon from '../assets/icons/Icon_Bookcase.svg'
+import ukFlagIcon from '../assets/icons/Icon_Flag_UK.svg'
+import swedenFlagIcon from '../assets/icons/Icon_Flag_Sweden.svg'
 import searchIcon from '../assets/icons/Icon_Search.svg'
 import './BookListPage.css'
 
 function formatDate(iso: string): string {
-    return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+    const date = new Date(iso)
+    const year = date.getFullYear()
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const day = String(date.getDate()).padStart(2, '0')
+    return `${year}/${month}/${day}`
 }
 
 export default function BookListPage() {
@@ -79,8 +84,8 @@ export default function BookListPage() {
             const ub = userBookMap.get(b.id)
             if (readFilter === 'read' && !(ub?.isRead ?? false)) return false
             if (readFilter === 'unread' && (ub?.isRead ?? false)) return false
-            if (ownedFilter === 'owned' && !(ub?.isOwned ?? false)) return false
-            if (ownedFilter === 'unowned' && (ub?.isOwned ?? false)) return false
+            if (ownedFilter === 'owned' && !(ub?.isOwnedEnglish ?? false)) return false
+            if (ownedFilter === 'unowned' && (ub?.isOwnedEnglish ?? false)) return false
             return true
         })
         : displayedBooks
@@ -131,7 +136,7 @@ export default function BookListPage() {
     }
 
     const readCount = [...userBookMap.values()].filter(ub => ub.isRead).length
-    const ownedCount = [...userBookMap.values()].filter(ub => ub.isOwned).length
+    const ownedCount = [...userBookMap.values()].filter(ub => ub.isOwnedEnglish).length
     const readPct = books.length > 0 ? Math.round((readCount / books.length) * 100) : 0
     const ownedPct = books.length > 0 ? Math.round((ownedCount / books.length) * 100) : 0
 
@@ -273,32 +278,39 @@ export default function BookListPage() {
                 </div>
             </div>
             <ul className="book-grid">
-                {visibleBooks.map(book => {
+                {visibleBooks.map((book, index) => {
                     const ub = userBookMap.get(book.id)
-                    const isOwned = ub?.isOwned ?? false
+                    const isOwnedEnglish = ub?.isOwnedEnglish ?? false
+                    const isOwnedSwedish = ub?.isOwnedSwedish ?? false
                     const isRead = ub?.isRead ?? false
                     const dateRead = ub?.dateRead ?? null
                     return (
                         <li
                             key={book.id}
                             className="book-card"
-                            style={{ backgroundColor: isRead && isOwned ? '#22C5BF' : isRead ? '#82D1A3' : isOwned ? '#FFC25D' : '#FF7342' }}
+                            style={{ backgroundColor: isRead && isOwnedEnglish ? '#22C5BF' : isRead ? '#82D1A3' : isOwnedEnglish ? '#FFC25D' : '#FF7342' }}
                             onClick={() => sessionStorage.setItem('bookListScrollY', String(window.scrollY))}
                         >
                             <Link to={`/books/${book.id}`} className="book-card-link">
-                                <div className="book-card-header">
-                                    <span className="book-card-icon-box">
-                                        {isOwned && <img src={bookcaseIcon} alt="Owned" className="book-card-icon-img" />}
-                                    </span>
-                                    <span className="book-card-status">
-                                        {isRead && dateRead ? `Read on ${formatDate(dateRead)}` : isRead ? 'Read' : 'Unread'}
+                                <span className="book-card-number">{index + 1}</span>
+                                <span className="book-card-divider" />
+                                <div className="book-card-content">
+                                    <div className="book-card-header">
+                                        <span className="book-card-flags">
+                                            {isOwnedEnglish && <img src={ukFlagIcon} alt="Owned in English" className="book-card-flag-img" />}
+                                            {isOwnedSwedish && <img src={swedenFlagIcon} alt="Owned in Swedish" className="book-card-flag-img" />}
+                                        </span>
+                                        <span className="book-card-status">
+                                            {isRead && dateRead ? `Read ${formatDate(dateRead)}` : isRead ? 'Read' : 'Unread'}
+                                        </span>
+                                    </div>
+                                    <span className="book-card-title">{book.title}</span>
+                                    {book.titleSwedish && <span className="book-card-title-swedish">{book.titleSwedish}</span>}
+                                    <span className="book-card-meta">
+                                        {book.releaseYear} | {book.genre.name}
+                                        {book.detectives.length > 0 && ` | ${book.detectives.map(d => d.name).join(', ')}`}
                                     </span>
                                 </div>
-                                <span className="book-card-title">{book.title}</span>
-                                <span className="book-card-meta">
-                                    {book.releaseYear} | {book.genre.name}
-                                    {book.detectives.length > 0 && ` | ${book.detectives.map(d => d.name).join(', ')}`}
-                                </span>
                             </Link>
                         </li>
                     )

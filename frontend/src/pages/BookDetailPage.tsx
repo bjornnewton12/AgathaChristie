@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom'
 import { fetchBook, type Book } from '../api/books'
 import { fetchUserBooks, updateUserBook, type UserBook } from '../api/userbooks'
 import { useAuth } from '../AuthContext'
-import bookcaseIcon from '../assets/icons/Icon_Bookcase.svg'
 import checkIcon from '../assets/icons/Icon_Check.svg'
 import arrowLeftIcon from '../assets/icons/Icon_Arrow_Left_Bold.svg'
 import editIcon from '../assets/icons/Icon_Edit.svg'
@@ -42,10 +41,11 @@ export default function BookDetailPage() {
     async function toggleRead() {
         if (!token || !id) return
         if (userBook?.isRead) {
-            const isOwned = userBook?.isOwned ?? false
-            const updated: UserBook = { bookId: id, isRead: false, dateRead: null, isOwned }
+            const isOwnedEnglish = userBook?.isOwnedEnglish ?? false
+            const isOwnedSwedish = userBook?.isOwnedSwedish ?? false
+            const updated: UserBook = { bookId: id, isRead: false, dateRead: null, isOwnedEnglish, isOwnedSwedish }
             setUserBook(updated)
-            await updateUserBook(id, { isRead: false, dateRead: null, isOwned }, token)
+            await updateUserBook(id, { isRead: false, dateRead: null, isOwnedEnglish, isOwnedSwedish }, token)
         } else {
             setSelectedDate('')
             setShowReadPicker(true)
@@ -55,29 +55,43 @@ export default function BookDetailPage() {
     async function confirmRead() {
         if (!token || !id) return
         const dateRead = selectedDate ? new Date(selectedDate).toISOString() : null
-        const isOwned = userBook?.isOwned ?? false
-        const updated: UserBook = { bookId: id, isRead: true, dateRead, isOwned }
+        const isOwnedEnglish = userBook?.isOwnedEnglish ?? false
+        const isOwnedSwedish = userBook?.isOwnedSwedish ?? false
+        const updated: UserBook = { bookId: id, isRead: true, dateRead, isOwnedEnglish, isOwnedSwedish }
         setUserBook(updated)
         setShowReadPicker(false)
-        await updateUserBook(id, { isRead: true, dateRead, isOwned }, token)
+        await updateUserBook(id, { isRead: true, dateRead, isOwnedEnglish, isOwnedSwedish }, token)
     }
 
-    async function toggleOwned() {
+    async function toggleOwnedEnglish() {
         if (!token || !id) return
-        const isOwned = !(userBook?.isOwned ?? false)
+        const isOwnedEnglish = !(userBook?.isOwnedEnglish ?? false)
+        const isOwnedSwedish = userBook?.isOwnedSwedish ?? false
         const isRead = userBook?.isRead ?? false
         const dateRead = userBook?.dateRead ?? null
-        const updated: UserBook = { bookId: id, isRead, dateRead, isOwned }
+        const updated: UserBook = { bookId: id, isRead, dateRead, isOwnedEnglish, isOwnedSwedish }
         setUserBook(updated)
-        await updateUserBook(id, { isRead, dateRead, isOwned }, token)
+        await updateUserBook(id, { isRead, dateRead, isOwnedEnglish, isOwnedSwedish }, token)
+    }
+
+    async function toggleOwnedSwedish() {
+        if (!token || !id) return
+        const isOwnedSwedish = !(userBook?.isOwnedSwedish ?? false)
+        const isOwnedEnglish = userBook?.isOwnedEnglish ?? false
+        const isRead = userBook?.isRead ?? false
+        const dateRead = userBook?.dateRead ?? null
+        const updated: UserBook = { bookId: id, isRead, dateRead, isOwnedEnglish, isOwnedSwedish }
+        setUserBook(updated)
+        await updateUserBook(id, { isRead, dateRead, isOwnedEnglish, isOwnedSwedish }, token)
     }
 
     if (error) return <p className="page-error">{error}</p>
     if (!book) return <p className="page-loading">Loading...</p>
 
     const isRead = userBook?.isRead ?? false
-    const isOwned = userBook?.isOwned ?? false
-    const heroColor = isRead && isOwned ? '#22C5BF' : isRead ? '#82D1A3' : isOwned ? '#FFC25D' : '#FF7342'
+    const isOwnedEnglish = userBook?.isOwnedEnglish ?? false
+    const isOwnedSwedish = userBook?.isOwnedSwedish ?? false
+    const heroColor = isRead && isOwnedEnglish ? '#22C5BF' : isRead ? '#82D1A3' : isOwnedEnglish ? '#FFC25D' : '#FF7342'
     const dateRead = userBook?.dateRead ?? null
 
     return (
@@ -119,11 +133,17 @@ export default function BookDetailPage() {
                             <button onClick={confirmRead}>Mark as read</button>
                         </div>
                     )}
-                    <button className="book-detail-toggle" onClick={toggleOwned}>
+                    <button className="book-detail-toggle" onClick={toggleOwnedEnglish}>
                         <span className="toggle-icon-box">
-                            {isOwned && <img src={bookcaseIcon} alt="" className="toggle-icon-img" />}
+                            {isOwnedEnglish && <img src={checkIcon} alt="" className="toggle-icon-img" />}
                         </span>
-                        <span>{isOwned ? 'You have it in your bookcase' : 'Do you own it?'}</span>
+                        <span>{isOwnedEnglish ? 'You own the English version' : 'Do you own the English version?'}</span>
+                    </button>
+                    <button className="book-detail-toggle" onClick={toggleOwnedSwedish}>
+                        <span className='toggle-icon-box'>
+                            {isOwnedSwedish && <img src={checkIcon} alt="" className="toggle-icon-img" />} 
+                        </span>
+                        <span>{isOwnedSwedish ? 'You own the Swedish version' : 'Do you own the Swedish version?'}</span>
                     </button>
                 </div>
                 {book.synopsis && (

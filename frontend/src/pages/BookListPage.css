@@ -37,33 +37,48 @@
 
 .book-card-link {
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  align-items: stretch;
+  gap: 0.9rem;
   padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.book-card-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.book-card-number {
+  font-family: "Inknut Antiqua", serif;
+  font-size: 1.25rem;
+  color: #121212;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.book-card-divider {
+  width: 1px;
+  background-color: #121212;
+  flex-shrink: 0;
+}
+
+.book-card-flags {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.book-card-flag-img {
+  width: 28px;
+  height: 20px;
 }
 
 .book-card-header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.35rem;
-}
-
-.book-card-icon-box {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border: 2px solid #121212;
-  border-radius: 6px;
-  flex-shrink: 0;
-}
-
-.book-card-icon-img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0);
+  margin-bottom: 12px;
 }
 
 .book-card-status {
@@ -77,11 +92,18 @@
   font-weight: 700;
   color: #121212;
   line-height: 1.25;
-  margin-bottom: 0.55rem;
+  margin-bottom: 5px;
+}
+
+.book-card-title-swedish {
+  font-size: 1rem;
+  font-style: italic;
+  color: #121212;
+  margin-bottom: 5px;
 }
 
 .book-card-meta {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #121212;
 }
 
