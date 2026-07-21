@@ -5,7 +5,16 @@ obj/
 # Planning docs
 ROADMAP.md
 
+# Backend secrets
+backend/**/appsettings.Development.json
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+
 # Frontend
 frontend/node_modules/
 frontend/dist/
 frontend/.env*
+frontend/public/Reference images/
