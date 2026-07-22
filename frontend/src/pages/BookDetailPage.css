@@ -150,3 +150,128 @@
   color: var(--accent);
   flex-shrink: 0;
 }
+
+/* Movie adaptaion */
+.adaptation-overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.adaptation-add-box {
+  width: 370px;
+  max-width: calc(100vw - 2rem);
+  height: 230px;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.adaptation-add-box h2 {
+  font-size: 24px;
+  color: var(--bg);
+  margin: 0;
+}
+
+.adaptation-add-box p {
+  font-size: 16px;
+  color: var(--bg);
+  margin: 0;
+}
+
+.adaptation-add-box input {
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  background: var(--text-primary);
+  color: var(--bg);
+}
+
+.adaptation-add-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.adaptation-add-actions button {
+  background: var(--bg);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.adaptation-add-error {
+  color: #ff7342;
+  font-size: 0.85rem;
+}
+
+.adaptation-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.adaptation-card {
+  flex-shrink: 0;
+  width: 160px;
+}
+
+.adaptation-card img {
+  width: 160px;
+  height: 228px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #f7f7f7;
+  display: block;
+}
+
+.adaptation-title {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 8px 0 0;
+}
+
+.adaptation-year {
+  font-size: 12px;
+  font-weight: 400;
+  color: #9d9d9d;
+  margin: 0;
+}
+
+.adaptation-add-trigger {
+  width: 160px;
+  height: 228px;
+  flex-shrink: 0;
+  border: 2px solid #f7f7f7;
+  border-radius: 8px;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.adaptation-add-trigger img {
+  width: 40px;
+  height: 40px;
+}
+
+.adaptation-add-trigger span {
+  font-size: 12px;
+  color: #f7f7f7;
+}

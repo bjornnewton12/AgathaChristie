@@ -30,6 +30,13 @@ builder.Services.AddScoped<IDetectiveRepository, DetectiveRepository>();
 builder.Services.AddScoped<IGenreRepository, GenreRepository>();
 builder.Services.AddScoped<DetectiveService>();
 builder.Services.AddScoped<GenreService>();
+builder.Services.AddScoped<IMovieAdaptationRepository, MovieAdaptationRepository>();
+builder.Services.AddScoped<MovieAdaptationService>();
+
+builder.Services.AddHttpClient<ITmdbClient, TmdbClient>(client =>
+{
+    client.BaseAddress = new Uri("https://api.themoviedb.org/3/");
+});
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserBookRepository, UserBookRepository>();
@@ -98,6 +105,14 @@ app.MapPut("/books/{id:guid}", async (Guid id, BookRequest request, BookService 
     var updated = await service.UpdateAsync(id, request);
     return updated is null ? Results.NotFound() : Results.Ok(updated);
 });
+
+app.MapPost("/books/{bookId:guid}/movieadaptations", async (Guid bookId, MovieAdaptationRequest request, MovieAdaptationService service) =>
+{
+    var created = await service.CreateAsync(bookId, request);
+    return created is null
+        ? Results.BadRequest("Could not find that movie on TMDB.")
+        : Results.Created($"/books/{bookId}/movieadaptations/{created.Id}", created);
+}).RequireAuthorization();
 
 app.MapGet("/detectives", async (DetectiveService service) =>
     Results.Ok(await service.GetAllAsync()));

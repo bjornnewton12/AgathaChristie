@@ -10,6 +10,13 @@ export interface Genre {
     name: string
 }
 
+export interface MovieAdaptation {
+    id: string
+    title: string
+    releaseYear: number
+    posterImageUrl: string | null
+}
+
 export interface Book {
     id: string
     title: string
@@ -20,6 +27,7 @@ export interface Book {
     trivia: string[]
     genre: Genre
     detectives: Detective[]
+    movieAdaptations: MovieAdaptation[]
 }
 
 export interface BookRequest {
@@ -73,4 +81,25 @@ export async function updateBook(id: string, data: BookRequest):
 export async function deleteBook(id: string): Promise<void> {
     const res = await fetch(`${BASE}/books/${id}`, { method: 'DELETE' })
     if (!res.ok) throw new Error('Failed to delete book')
+}
+
+export interface MovieAdaptationRequest {
+    tmdbUrl: string
+}
+
+export async function addMovieAdaptation(
+    bookId: string,
+    data: MovieAdaptationRequest,
+    token: string
+): Promise<MovieAdaptation> {
+    const res = await fetch(`${BASE}/books/${bookId}/movieadaptations`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(data)
+    })
+    if (!res.ok) throw new Error('Could not find that movie on TMDB')
+    return res.json()
 }

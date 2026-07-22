@@ -1,4 +1,6 @@
-﻿namespace AgathaChristie.Application.DTOs;
+﻿using AgathaChristie.Domain.Models;
+
+namespace AgathaChristie.Application.DTOs;
 
 public class BookResponse
 {
@@ -11,6 +13,7 @@ public class BookResponse
     public List<string> Trivia { get; set; } = [];
     public GenreResponse Genre { get; set; } = null!;
     public IEnumerable<DetectiveResponse> Detectives { get; set; } = [];
+    public IEnumerable<MovieAdaptationResponse> MovieAdaptations { get; set; } = [];
 }
 
 public class GenreResponse
@@ -25,4 +28,12 @@ public class DetectiveResponse
     public string Name { get; set; } = string.Empty;
     public string? ShortName { get; set; }
     public string HexColor { get; set; } = string.Empty;
+}
+
+public class MovieAdaptationResponse
+{
+    public Guid Id { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public int ReleaseYear { get; set; }
+    public string? PosterImageUrl { get; set; }
 }

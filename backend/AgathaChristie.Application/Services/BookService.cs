@@ -65,6 +65,13 @@ public class BookService
             Name = bd.Detective.Name,
             ShortName = bd.Detective.ShortName,
             HexColor = bd.Detective.HexColor
+        }),
+        MovieAdaptations = book.MovieAdaptations.Select(m => new MovieAdaptationResponse
+        {
+            Id = m.Id,
+            Title = m.Title,
+            ReleaseYear = m.ReleaseYear,
+            PosterImageUrl = m.PosterImageUrl
         })
     };
 }
