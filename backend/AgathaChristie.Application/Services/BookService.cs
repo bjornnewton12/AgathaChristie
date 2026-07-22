@@ -72,6 +72,16 @@ public class BookService
             Title = m.Title,
             ReleaseYear = m.ReleaseYear,
             PosterImageUrl = m.PosterImageUrl
+        }),
+        TVAdaptations = book.TVAdaptations.Select(t => new TVAdaptationResponse
+        {
+            Id = t.Id,
+            SeriesName = t.SeriesName,
+            EpisodeTitle = t.EpisodeTitle,
+            SeasonNumber = t.SeasonNumber,
+            EpisodeNumber = t.EpisodeNumber,
+            ReleaseYear = t.ReleaseYear,
+            PosterImageUrl = t.PosterImageUrl
         })
     };
 }

@@ -12,6 +12,7 @@ public class AppDbContext : DbContext
     public DbSet<Genre> Genres => Set<Genre>();
     public DbSet<BookDetective> BookDetectives => Set<BookDetective>();
     public DbSet<MovieAdaptation> MovieAdaptations => Set<MovieAdaptation>();
+    public DbSet<TVAdaptation> TVAdaptations => Set<TVAdaptation>();
     public DbSet<User> Users => Set<User>();
     public DbSet<UserBook> UserBooks => Set<UserBook>();
 

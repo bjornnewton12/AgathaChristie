@@ -17,6 +17,16 @@ export interface MovieAdaptation {
     posterImageUrl: string | null
 }
 
+export interface TVAdaptation {
+    id: string
+    seriesName: string
+    episodeTitle: string | null
+    seasonNumber: number | null
+    episodeNumber: number | null
+    releaseYear: number
+    posterImageUrl: string | null
+}
+
 export interface Book {
     id: string
     title: string
@@ -28,6 +38,7 @@ export interface Book {
     genre: Genre
     detectives: Detective[]
     movieAdaptations: MovieAdaptation[]
+    tvAdaptations: TVAdaptation[]
 }
 
 export interface BookRequest {
@@ -100,6 +111,27 @@ export async function addMovieAdaptation(
         },
         body: JSON.stringify(data)
     })
-    if (!res.ok) throw new Error('Could not find that movie on TMDB')
+    if (!res.ok) throw new Error(await res.json().catch(() => 'Could not find that movie on TMDB'))
+    return res.json()
+}
+
+export interface TVAdaptationRequest {
+    tmdbUrl: string
+}
+
+export async function addTVAdaptation(
+    bookId: string,
+    data: TVAdaptationRequest,
+    token: string
+): Promise<TVAdaptation> {
+    const res = await fetch(`${BASE}/books/${bookId}/tvadaptations`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(data)
+    })
+    if (!res.ok) throw new Error(await res.json().catch(() => 'Could not find that show or episode on TMDB'))
     return res.json()
 }

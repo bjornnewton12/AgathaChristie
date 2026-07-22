@@ -21,6 +21,7 @@ public class BookRepository : IBookRepository
             .Include(b => b.BookDetectives)
                 .ThenInclude(bd => bd.Detective)
             .Include(b => b.MovieAdaptations)
+            .Include(b => b.TVAdaptations)
             .ToListAsync();
     }
 
@@ -31,6 +32,7 @@ public class BookRepository : IBookRepository
             .Include(b => b.BookDetectives)
                 .ThenInclude(bd => bd.Detective)
             .Include(b => b.MovieAdaptations)
+            .Include(b => b.TVAdaptations)
             .FirstOrDefaultAsync(b => b.Id == id);
     }
 

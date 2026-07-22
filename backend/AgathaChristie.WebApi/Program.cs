@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.RegularExpressions;
 using AgathaChristie.Application.DTOs;
 using AgathaChristie.Application.Interfaces;
 using AgathaChristie.Application.Services;
@@ -32,6 +33,8 @@ builder.Services.AddScoped<DetectiveService>();
 builder.Services.AddScoped<GenreService>();
 builder.Services.AddScoped<IMovieAdaptationRepository, MovieAdaptationRepository>();
 builder.Services.AddScoped<MovieAdaptationService>();
+builder.Services.AddScoped<ITVAdaptationRepository, TVAdaptationRepository>();
+builder.Services.AddScoped<TVAdaptationService>();
 
 builder.Services.AddHttpClient<ITmdbClient, TmdbClient>(client =>
 {
@@ -108,10 +111,38 @@ app.MapPut("/books/{id:guid}", async (Guid id, BookRequest request, BookService 
 
 app.MapPost("/books/{bookId:guid}/movieadaptations", async (Guid bookId, MovieAdaptationRequest request, MovieAdaptationService service) =>
 {
-    var created = await service.CreateAsync(bookId, request);
-    return created is null
-        ? Results.BadRequest("Could not find that movie on TMDB.")
-        : Results.Created($"/books/{bookId}/movieadaptations/{created.Id}", created);
+    if (Regex.IsMatch(request.TmdbUrl, @"tv/\d+"))
+        return Results.BadRequest("That's a TV show link. Add it under TV adaptations instead.");
+
+    try
+    {
+        var created = await service.CreateAsync(bookId, request);
+        return created is null
+            ? Results.BadRequest("Could not find that movie on TMDB. Check the link")
+            : Results.Created($"/books/{bookId}/movieadaptations/{created.Id}", created);
+    }
+    catch (InvalidOperationException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
+}).RequireAuthorization();
+
+app.MapPost("/books/{bookId:guid}/tvadaptations", async (Guid bookId, TVAdaptationRequest request, TVAdaptationService service) =>
+{
+    if (Regex.IsMatch(request.TmdbUrl, @"movie/\d+"))
+        return Results.BadRequest("That's a movie link. Add it under Movie adaptations instead.");
+
+    try
+    {
+        var created = await service.CreateAsync(bookId, request);
+        return created is null
+            ? Results.BadRequest("Could not find that show or episode on TMDB.")
+            : Results.Created($"/books/{bookId}/tvadaptations/{created.Id}", created);
+    }
+    catch (InvalidOperationException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
 }).RequireAuthorization();
 
 app.MapGet("/detectives", async (DetectiveService service) =>

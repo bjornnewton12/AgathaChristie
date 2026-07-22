@@ -22,6 +22,9 @@ public class MovieAdaptationService
         if (!match.Success) return null;
         var tmdbId = int.Parse(match.Groups[1].Value);
 
+        if (await _movieAdaptationRepository.ExistsAsync(bookId, tmdbId))
+            throw new InvalidOperationException("This movie has already been added.");
+
         var movie = await _tmdbClient.GetMovieAsync(tmdbId);
         if (movie is null) return null;
 

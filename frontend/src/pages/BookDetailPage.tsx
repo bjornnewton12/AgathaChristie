@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { fetchBook, addMovieAdaptation, type Book } from "../api/books";
+import {
+  fetchBook,
+  addMovieAdaptation,
+  addTVAdaptation,
+  type Book,
+} from "../api/books";
 import {
   fetchUserBooks,
   updateUserBook,
@@ -32,6 +37,9 @@ export default function BookDetailPage() {
   const [showAddOverlay, setShowAddOverlay] = useState(false);
   const [tmdbUrlInput, setTmdbUrlInput] = useState("");
   const [addError, setAddError] = useState<string | null>(null);
+  const [showAddTVOverlay, setShowAddTVOverlay] = useState(false);
+  const [tmdbTVUrlInput, setTmdbTVUrlInput] = useState("");
+  const [addTVError, setAddTVError] = useState<string | null>(null);
 
   useEffect(() => {
     document.body.style.overscrollBehavior = "none";
@@ -165,8 +173,43 @@ export default function BookDetailPage() {
           : prev,
       );
       setShowAddOverlay(false);
-    } catch {
-      setAddError("Could not find that movie on TMDB");
+    } catch (err) {
+      setAddError(
+        err instanceof Error ? err.message : "Could not find that movie on TMDB",
+      );
+    }
+  }
+
+  function openAddTVOverlay() {
+    setTmdbTVUrlInput("");
+    setAddTVError(null);
+    setShowAddTVOverlay(true);
+  }
+
+  function closeAddTVOverlay() {
+    setShowAddTVOverlay(false);
+  }
+
+  async function submitTVAdaptation() {
+    if (!token || !id) return;
+    try {
+      const created = await addTVAdaptation(
+        id,
+        { tmdbUrl: tmdbTVUrlInput },
+        token,
+      );
+      setBook((prev) =>
+        prev
+          ? { ...prev, tvAdaptations: [...prev.tvAdaptations, created] }
+          : prev,
+      );
+      setShowAddTVOverlay(false);
+    } catch (err) {
+      setAddTVError(
+        err instanceof Error
+          ? err.message
+          : "Could not find that show or episode on TMDB",
+      );
     }
   }
 
@@ -223,6 +266,36 @@ export default function BookDetailPage() {
             <div className="adaptation-add-actions">
               <button onClick={submitAdaptation}>Submit</button>
               <button onClick={closeAddOverlay}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+      {showAddTVOverlay && (
+        <div
+          className="adaptation-overlay-backdrop"
+          onClick={closeAddTVOverlay}
+        >
+          <div
+            className="adaptation-add-box"
+            style={{ backgroundColor: heroColor }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2>Add TV show</h2>
+            <p>
+              To add a show, paste its link from tmdb.com in the field below:
+            </p>
+            <input
+              type="text"
+              placeholder="Add link here..."
+              value={tmdbTVUrlInput}
+              onChange={(e) => setTmdbTVUrlInput(e.target.value)}
+            />
+            {addTVError && (
+              <p className="adaptation-add-error">{addTVError}</p>
+            )}
+            <div className="adaptation-add-actions">
+              <button onClick={submitTVAdaptation}>Submit</button>
+              <button onClick={closeAddTVOverlay}>Cancel</button>
             </div>
           </div>
         </div>
@@ -321,6 +394,35 @@ export default function BookDetailPage() {
               >
                 <img src={plusIcon} alt="" />
                 <span>Add movie</span>
+              </button>
+            )}
+          </div>
+        </section>
+
+        <section>
+          <h2>TV adaptations</h2>
+          <div className="adaptation-scroll">
+            {book.tvAdaptations.map((t) => (
+              <div key={t.id} className="adaptation-card">
+                {t.posterImageUrl && (
+                  <img src={t.posterImageUrl} alt={t.seriesName} />
+                )}
+                <p className="adaptation-title">{t.seriesName}</p>
+                {t.seasonNumber !== null && t.episodeNumber !== null && (
+                  <p className="adaptation-episode">
+                    S{t.seasonNumber}E{t.episodeNumber} | {t.episodeTitle}
+                  </p>
+                )}
+                <p className="adaptation-year">{t.releaseYear}</p>
+              </div>
+            ))}
+            {token && (
+              <button
+                className="adaptation-add-trigger"
+                onClick={openAddTVOverlay}
+              >
+                <img src={plusIcon} alt="" />
+                <span>Add show</span>
               </button>
             )}
           </div>

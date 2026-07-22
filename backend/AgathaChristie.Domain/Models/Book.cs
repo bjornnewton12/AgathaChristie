@@ -13,5 +13,6 @@ public class Book
     public Genre Genre { get; set; } = null!;
     public ICollection<BookDetective> BookDetectives { get; set; } = [];
     public ICollection<MovieAdaptation> MovieAdaptations { get; set; } = [];
+    public ICollection<TVAdaptation> TVAdaptations { get; set; } = [];
 
 }

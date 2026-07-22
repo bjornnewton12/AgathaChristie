@@ -165,7 +165,7 @@
 .adaptation-add-box {
   width: 370px;
   max-width: calc(100vw - 2rem);
-  height: 230px;
+  min-height: 230px;
   border-radius: 16px;
   padding: 16px;
   display: flex;
@@ -238,9 +238,16 @@
 
 .adaptation-title {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--text-primary);
   margin: 8px 0 0;
+}
+
+.adaptation-episode {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0;
 }
 
 .adaptation-year {
