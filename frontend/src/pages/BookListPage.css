@@ -82,7 +82,8 @@
 }
 
 .book-card-status {
-  font-size: 1rem;
+  font-size: 0.8rem;
+  font-weight: 400;
   color: #121212;
 }
 
@@ -97,6 +98,7 @@
 
 .book-card-title-swedish {
   font-size: 1rem;
+  font-weight: 400;
   font-style: italic;
   color: #121212;
   margin-bottom: 5px;
